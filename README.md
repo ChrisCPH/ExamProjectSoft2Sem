@@ -1,3 +1,15 @@
+### Technology Stack
+
+| Layer | Tools |
+| -------- | ------- |
+| Version Control | Git, GitHub |
+| IDE | Visual Studio Code |
+| Programming Language | C# |
+| Database | mssql |
+| CI/CD | GitHub Actions |
+| Testing | XUnit |
+| Project management | GitHub Projects |
+
 ### User Stories and Acceptance Criteria
 
 #### Customer
@@ -122,7 +134,7 @@ Acceptance Criteria:
 
 As a delivery driver I want to be able to mark the order as finished so that the customers knows it has been delivered.
 
-Acceptance Criteria:
+Acceptance Criteria: 
 
 1. The driver should have a “Mark as Delivered” button that notifies the customer.
 
