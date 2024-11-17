@@ -51,5 +51,12 @@ namespace SearchService.Repositories
 
             return restaurant?.Menu;
         }
+
+        public async Task<Restaurant?> GetRestaurantByIdAsync(int restaurantID)
+        {
+            return await _context.Restaurant
+                .Include(r => r.Menu)
+                .FirstOrDefaultAsync(r => r.RestaurantID == restaurantID);
+        }
     }
 }

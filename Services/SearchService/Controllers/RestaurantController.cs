@@ -34,5 +34,19 @@ namespace SearchService.Controllers
             }
             return Ok(menu);
         }
+
+        // GET: api/restaurant/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetRestaurantById(int id)
+        {
+            var restaurant = await _repository.GetRestaurantByIdAsync(id);
+
+            if (restaurant == null)
+            {
+                return NotFound(new { Message = $"Restaurant with ID {id} not found." });
+            }
+
+            return Ok(restaurant);
+        }
     }
 }

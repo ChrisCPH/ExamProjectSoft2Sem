@@ -21,35 +21,35 @@ namespace SearchService.Tests
 
         private async Task SeedData(SearchDbContext context)
         {
-            var restaurants = new List<Restaurant>
+            var restaurant = new List<Restaurant>
             {
                 new Restaurant
                 {
-                    Id = 1,
+                    RestaurantID = 1,
                     Name = "Italian Bistro",
                     Address = "123 Main St",
                     Category = "Italian",
                     Menu = new List<MenuItem>
                     {
-                        new MenuItem { Id = 1, Name = "Pasta", Price = 12.99m },
-                        new MenuItem { Id = 2, Name = "Pizza", Price = 15.49m }
+                        new MenuItem { MenuItemID = 1, Name = "Pasta", Price = 12.99m },
+                        new MenuItem { MenuItemID = 2, Name = "Pizza", Price = 15.49m }
                     }
                 },
                 new Restaurant
                 {
-                    Id = 2,
+                    RestaurantID = 2,
                     Name = "Sushi World",
                     Address = "456 Elm St",
                     Category = "Japanese",
                     Menu = new List<MenuItem>
                     {
-                        new MenuItem { Id = 3, Name = "Sushi Roll", Price = 8.99m },
-                        new MenuItem { Id = 4, Name = "Tempura", Price = 10.99m }
+                        new MenuItem { MenuItemID = 3, Name = "Sushi Roll", Price = 8.99m },
+                        new MenuItem { MenuItemID = 4, Name = "Tempura", Price = 10.99m }
                     }
                 },
                 new Restaurant
                 {
-                    Id = 3,
+                    RestaurantID = 3,
                     Name = "Burger Haven",
                     Address = "789 Oak St",
                     Category = "American",
@@ -57,57 +57,57 @@ namespace SearchService.Tests
                 }
             };
 
-            context.Restaurants.AddRange(restaurants);
+            context.Restaurant.AddRange(restaurant);
             await context.SaveChangesAsync();
         }
 
         [Fact]
-        public async Task SearchRestaurantsAsync_ReturnsRestaurantsByName()
+        public async Task SearchRestaurantAsync_ReturnsRestaurantByName()
         {
             var context = GetInMemoryDbContext();
             await SeedData(context);
             var repository = new RestaurantRepository(context);
 
-            var results = await repository.SearchRestaurantsAsync(name: "Sushi");
+            var results = await repository.SearchRestaurantAsync(name: "Sushi");
 
             Assert.Single(results);
             Assert.Equal("Sushi World", results[0].Name);
         }
 
         [Fact]
-        public async Task SearchRestaurantsAsync_ReturnsRestaurantsByAddress()
+        public async Task SearchRestaurantAsync_ReturnsRestaurantByAddress()
         {
             var context = GetInMemoryDbContext();
             await SeedData(context);
             var repository = new RestaurantRepository(context);
 
-            var results = await repository.SearchRestaurantsAsync(address: "Main St");
+            var results = await repository.SearchRestaurantAsync(address: "Main St");
 
             Assert.Single(results);
             Assert.Equal("Italian Bistro", results[0].Name);
         }
 
         [Fact]
-        public async Task SearchRestaurantsAsync_ReturnsRestaurantsByCategory()
+        public async Task SearchRestaurantAsync_ReturnsRestaurantByCategory()
         {
             var context = GetInMemoryDbContext();
             await SeedData(context);
             var repository = new RestaurantRepository(context);
 
-            var results = await repository.SearchRestaurantsAsync(category: "Italian");
+            var results = await repository.SearchRestaurantAsync(category: "Italian");
 
             Assert.Single(results);
             Assert.Equal("Italian Bistro", results[0].Name);
         }
 
         [Fact]
-        public async Task SearchRestaurantsAsync_ReturnsEmptyListIfNoMatch()
+        public async Task SearchRestaurantAsync_ReturnsEmptyListIfNoMatch()
         {
             var context = GetInMemoryDbContext();
             await SeedData(context);
             var repository = new RestaurantRepository(context);
 
-            var results = await repository.SearchRestaurantsAsync(name: "NonExistent");
+            var results = await repository.SearchRestaurantAsync(name: "NonExistent");
 
             Assert.Empty(results);
         }
@@ -148,6 +148,33 @@ namespace SearchService.Tests
             var menu = await repository.GetMenuAsync(999);
 
             Assert.Null(menu);
+        }
+
+        [Fact]
+        public async Task GetRestaurantByIdAsync_ReturnsRestaurant_WhenIdExists()
+        {
+            var context = GetInMemoryDbContext();
+            await SeedData(context);
+            var repository = new RestaurantRepository(context);
+
+            var restaurant = await repository.GetRestaurantByIdAsync(1);
+
+            Assert.NotNull(restaurant);
+            Assert.Equal("Italian Bistro", restaurant.Name);
+            Assert.Equal("123 Main St", restaurant.Address);
+            Assert.Equal("Italian", restaurant.Category);
+        }
+
+        [Fact]
+        public async Task GetRestaurantByIdAsync_ReturnsNull_WhenIdDoesNotExist()
+        {
+            var context = GetInMemoryDbContext();
+            await SeedData(context);
+            var repository = new RestaurantRepository(context);
+
+            var restaurant = await repository.GetRestaurantByIdAsync(99);
+
+            Assert.Null(restaurant);
         }
     }
 }
