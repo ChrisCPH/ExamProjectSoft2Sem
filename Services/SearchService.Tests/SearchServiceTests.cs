@@ -176,5 +176,31 @@ namespace SearchService.Tests
 
             Assert.Null(restaurant);
         }
+
+        [Fact]
+        public async Task GetMenuItemByIdAsync_ReturnsMenuItem_WhenIdExists()
+        {
+            var context = GetInMemoryDbContext();
+            await SeedData(context);
+            var repository = new RestaurantRepository(context);
+
+            var menuItem = await repository.GetMenuItemByIdAsync(1);
+
+            Assert.NotNull(menuItem);
+            Assert.Equal("Pasta", menuItem.Name);
+            Assert.Equal(12.99m, menuItem.Price);
+        }
+
+        [Fact]
+        public async Task GetMenuItemByIdAsync_ReturnsNull_WhenIdDoesNotExist()
+        {
+            var context = GetInMemoryDbContext();
+            await SeedData(context);
+            var repository = new RestaurantRepository(context);
+
+            var menuItem = await repository.GetMenuItemByIdAsync(99);
+
+            Assert.Null(menuItem);
+        }
     }
 }

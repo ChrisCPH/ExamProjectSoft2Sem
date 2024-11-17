@@ -58,5 +58,11 @@ namespace SearchService.Repositories
                 .Include(r => r.Menu)
                 .FirstOrDefaultAsync(r => r.RestaurantID == restaurantID);
         }
+
+        public async Task<MenuItem?> GetMenuItemByIdAsync(int menuItemID)
+        {
+            return await _context.MenuItem
+                .FirstOrDefaultAsync(m => m.MenuItemID == menuItemID);
+        }
     }
 }
