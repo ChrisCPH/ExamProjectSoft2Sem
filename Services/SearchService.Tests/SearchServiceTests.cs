@@ -8,7 +8,7 @@ using Xunit;
 
 namespace SearchService.Tests
 {
-    public class RestaurantRepositoryTests
+    public class SearchServiceTests
     {
         private SearchDbContext GetInMemoryDbContext()
         {

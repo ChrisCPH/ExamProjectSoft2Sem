@@ -15,7 +15,7 @@ namespace SearchService.Controllers
             _repository = repository;
         }
 
-        // GET: api/restaurant/search?name=Pizza&address=Downtown&category=Italian
+        // GET: api/restaurant/search?name=Bistro&address=Main&category=Italian
         [HttpGet("search")]
         public async Task<IActionResult> SearchRestaurant([FromQuery] string name, [FromQuery] string address, [FromQuery] string category)
         {
