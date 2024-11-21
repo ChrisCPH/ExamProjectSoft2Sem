@@ -9,5 +9,6 @@ namespace SearchService.Data
 
         public DbSet<Restaurant> Restaurant { get; set; } = null!;
         public DbSet<MenuItem> MenuItem { get; set; } = null!;
+        public DbSet<Categories> Categories { get; set; } = null!;
     }
 }

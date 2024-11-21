@@ -14,12 +14,14 @@ namespace SearchService.Models
 
         [Required]
         [MaxLength(255)]
-        public string Category { get; set; } = string.Empty;
+        public string OpeningHours { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(50)]
         public string Address { get; set; } = string.Empty;
 
         public List<MenuItem> Menu { get; set; } = new List<MenuItem>();
+
+        public List<Categories> Categories { get; set; } = new List<Categories>();
     }
 }
