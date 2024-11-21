@@ -1,14 +1,10 @@
 using Moq;
 using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Xunit;
 using System.Text.Json;
 using OrderService.Services;
 using OrderService.Repositories;
 using OrderService.Models;
 using OrderService.Data;
-using System;
 using Microsoft.EntityFrameworkCore;
 
 public class OrderRepositoryTests
@@ -199,7 +195,7 @@ public class OrderRepositoryTests
     public async Task CreateOrderAsync_ShouldAddOrderAndReturnId()
     {
         var mockRepository = new Mock<IOrderRepository>();
-        var service = new OrderService.Services.OrderService(mockRepository.Object, null);
+        var service = new OrderService.Services.OrderService(mockRepository.Object, new HttpClient());
         var customerId = 1;
         var restaurantId = 2;
         var expectedOrderId = 42;
@@ -243,7 +239,7 @@ public class OrderRepositoryTests
         var menuItemResponse = JsonSerializer.Serialize(new MenuItem { Price = menuItemPrice });
         var handler = new MockHttpMessageHandler(request =>
         {
-            Assert.Equal($"http://localhost:5045/api/restaurant/menu/{menuItemId}", request.RequestUri.ToString());
+            Assert.Equal($"http://localhost:5045/api/restaurant/menu/{menuItemId}", request.RequestUri?.ToString());
             Assert.Equal(HttpMethod.Get, request.Method);
 
             return new HttpResponseMessage
@@ -274,15 +270,15 @@ public class OrderRepositoryTests
     public async Task PlaceOrderAsync_ShouldUpdateOrderStatusAndTotalPrice()
     {
         var mockRepository = new Mock<IOrderRepository>();
-        var service = new OrderService.Services.OrderService(mockRepository.Object, null);
+        var service = new OrderService.Services.OrderService(mockRepository.Object, new HttpClient());
         var orderId = 1;
         var restaurantId = 2;
         var order = new Order { OrderID = orderId, RestaurantID = restaurantId, Status = "Pending", TotalPrice = 0 };
         var orderItems = new List<OrderItem>
-    {
-        new OrderItem { TotalPrice = 10 },
-        new OrderItem { TotalPrice = 20 }
-    };
+        {
+            new OrderItem { TotalPrice = 10 },
+            new OrderItem { TotalPrice = 20 }
+        };
 
         mockRepository.Setup(r => r.GetOrderByIdAsync(orderId)).ReturnsAsync(order);
         mockRepository.Setup(r => r.GetOrderItemsByOrderIdAsync(orderId)).ReturnsAsync(orderItems);

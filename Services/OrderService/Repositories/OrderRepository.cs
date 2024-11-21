@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OrderService.Models;
 using OrderService.Data;
@@ -29,10 +26,9 @@ namespace OrderService.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Order> GetOrderByIdAsync(int orderId)
+        public async Task<Order?> GetOrderByIdAsync(int orderId)
         {
-            return await _context.Order
-                .FirstOrDefaultAsync(o => o.OrderID == orderId);
+            return await _context.Order.FirstOrDefaultAsync(o => o.OrderID == orderId);
         }
 
         public async Task<List<Order>> GetAllOrdersAsync()
@@ -47,10 +43,9 @@ namespace OrderService.Repositories
                 .ToListAsync();
         }
 
-        public async Task<OrderItem> GetOrderItemByIdAsync(int orderItemId)
+        public async Task<OrderItem?> GetOrderItemByIdAsync(int orderItemId)
         {
-            return await _context.OrderItem
-                .FirstOrDefaultAsync(oi => oi.OrderItemID == orderItemId);
+            return await _context.OrderItem.FirstOrDefaultAsync(oi => oi.OrderItemID == orderItemId);
         }
 
         public async Task DeleteOrderAsync(int orderId)

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using OrderService.Models;
 using OrderService.Repositories;
 using System.Text.Json;
@@ -58,11 +56,7 @@ namespace OrderService.Services
 
             var content = await response.Content.ReadAsStringAsync();
 
-            Console.WriteLine(content); 
-
             var menuItem = JsonSerializer.Deserialize<MenuItem>(content);
-
-            Console.WriteLine(menuItem.Price);
 
             return menuItem?.Price ?? 0;
         }
@@ -99,7 +93,7 @@ namespace OrderService.Services
             await _httpClient.PostAsync("/restaurant/notifications", content);
         }
 
-        public async Task<Order> GetOrderByIdAsync(int orderId)
+        public async Task<Order?> GetOrderByIdAsync(int orderId)
         {
             return await _orderRepository.GetOrderByIdAsync(orderId);
         }
@@ -114,7 +108,7 @@ namespace OrderService.Services
             return await _orderRepository.GetOrderItemsByOrderIdAsync(orderId);
         }
 
-        public async Task<OrderItem> GetOrderItemByIdAsync(int orderItemId)
+        public async Task<OrderItem?> GetOrderItemByIdAsync(int orderItemId)
         {
             return await _orderRepository.GetOrderItemByIdAsync(orderItemId);
         }
@@ -132,13 +126,13 @@ namespace OrderService.Services
         public int MenuItemID { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [JsonPropertyName("price")]
         public decimal Price { get; set; }
 
         [JsonPropertyName("description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [JsonPropertyName("restaurantID")]
         public int RestaurantID { get; set; }

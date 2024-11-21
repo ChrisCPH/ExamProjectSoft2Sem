@@ -218,8 +218,6 @@ namespace SearchService.Tests
             Assert.Null(menuItem);
         }
 
-        //Need to test all updates
-
         [Fact]
         public async Task AddMenuItemAsync_AddsMenuItemSuccessfully()
         {

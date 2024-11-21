@@ -8,10 +8,10 @@ namespace OrderService.Repositories
     {
         Task<int> AddOrderAsync(Order order);
         Task AddOrderItemAsync(OrderItem orderItem);
-        Task<Order> GetOrderByIdAsync(int orderId);
+        Task<Order?> GetOrderByIdAsync(int orderId);
         Task<List<Order>> GetAllOrdersAsync();
         Task<List<OrderItem>> GetOrderItemsByOrderIdAsync(int orderId);
-        Task<OrderItem> GetOrderItemByIdAsync(int orderItemId);
+        Task<OrderItem?> GetOrderItemByIdAsync(int orderItemId);
         Task DeleteOrderAsync(int orderId);
         Task SaveChangesAsync();
     }
