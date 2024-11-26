@@ -7,7 +7,7 @@ namespace AccountService.Repositories
     public interface IAccountRepository
     {
         Task<Account> AddAccountAsync(Account account);
-        Task<Account> GetAccountByIdAsync(int id);
+        Task<Account?> GetAccountByIdAsync(int id);
         Task<Account?> GetAccountByEmailAsync(string email);
         Task UpdateAccountAsync(Account account);
         Task<Account?> GetAccountByNameAsync(string name);
@@ -30,7 +30,7 @@ namespace AccountService.Repositories
             return account;
         }
 
-        public async Task<Account> GetAccountByIdAsync(int id)
+        public async Task<Account?> GetAccountByIdAsync(int id)
         {
             return await _context.Account.FindAsync(id);
         }

@@ -12,7 +12,7 @@ namespace AccountService.Services
     public interface IAccountService
     {
         Task<Account> CreateAccountAsync(Account account);
-        Task<Account> GetAccountByIdAsync(int id);
+        Task<Account?> GetAccountByIdAsync(int id);
         Task<string?> LoginAsync(string email, string password);
         Task LinkRestaurant(string name, string address, string category);
         Task<bool> DeleteAccountAsync(int accountId);
@@ -51,7 +51,7 @@ namespace AccountService.Services
             return await _accountRepository.AddAccountAsync(account);
         }
 
-        public async Task<Account> GetAccountByIdAsync(int id)
+        public async Task<Account?> GetAccountByIdAsync(int id)
         {
             return await _accountRepository.GetAccountByIdAsync(id);
         }
@@ -77,7 +77,7 @@ namespace AccountService.Services
         {
             var jwtSettings = _configuration.GetSection("Jwt");
 
-            var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
+            var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? throw new InvalidOperationException("JWT key is missing."));
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
             var claims = new[]
@@ -92,7 +92,7 @@ namespace AccountService.Services
                 issuer: jwtSettings["Issuer"],
                 audience: jwtSettings["Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(int.Parse(jwtSettings["ExpiresInMinutes"])),
+                expires: DateTime.UtcNow.AddMinutes(int.Parse(jwtSettings["ExpiresInMinutes"] ?? throw new InvalidOperationException("JWT timer is missing."))),
                 signingCredentials: credentials
             );
 
@@ -103,7 +103,7 @@ namespace AccountService.Services
         {
             var account = await _accountRepository.GetAccountByNameAsync(name);
 
-            if (account.AccountType != AccountType.Restaurant)
+            if (account?.AccountType != AccountType.Restaurant)
             {
                 throw new InvalidOperationException("Account is not a restaurant.");
             }
