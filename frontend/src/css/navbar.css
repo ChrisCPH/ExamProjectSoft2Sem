@@ -1,0 +1,35 @@
+nav {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav li {
+    display: inline;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+    border-radius: 4px;
+  }
+  
+  nav .logged-out {
+    display: flex;
+  }
+  
+  nav .logged-in {
+    display: flex;
+  }
+  
