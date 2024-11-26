@@ -97,4 +97,11 @@ public class AccountController : ControllerBase
         }
     }
 
+    [HttpGet("accountType")]
+    public IActionResult GetAccountType([FromQuery] string token)
+    {
+        var accountType = _accountService.GetAccountTypeFromToken(token);
+        return Ok(new { AccountType = accountType });
+    }
+
 }

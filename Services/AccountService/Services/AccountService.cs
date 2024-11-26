@@ -16,6 +16,7 @@ namespace AccountService.Services
         Task<string?> LoginAsync(string email, string password);
         Task LinkRestaurant(string name, string address, string category);
         Task<bool> DeleteAccountAsync(int accountId);
+        Task<string> GetAccountTypeFromToken(string token);
     }
 
     public class AccountService : IAccountService
@@ -56,6 +57,16 @@ namespace AccountService.Services
             return await _accountRepository.GetAccountByIdAsync(id);
         }
 
+        public Task<string> GetAccountTypeFromToken(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadJwtToken(token);
+
+            var accountTypeClaim = jwtToken?.Claims.FirstOrDefault(c => c.Type == "AccountType");
+
+            return Task.FromResult(accountTypeClaim?.Value ?? "Unknown");
+        }
+
         public async Task<string?> LoginAsync(string email, string password)
         {
             var account = await _accountRepository.GetAccountByEmailAsync(email);
@@ -85,7 +96,8 @@ namespace AccountService.Services
             new Claim(ClaimTypes.Name, account.Name),
             new Claim(ClaimTypes.Email, account.Email),
             new Claim("AccountID", account.AccountID.ToString()),
-            new Claim(ClaimTypes.Role, account.GetType().Name)
+            new Claim(ClaimTypes.Role, account.GetType().Name),
+            new Claim("AccountType", account.AccountType.ToString())
         };
 
             var token = new JwtSecurityToken(
