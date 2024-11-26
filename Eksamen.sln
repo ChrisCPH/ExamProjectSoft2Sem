@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderService.Tests", "Servi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchService.Tests", "Services\SearchService.Tests\SearchService.Tests.csproj", "{9DC7F037-4AD4-491E-B41E-DD55EBD91FD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountService", "Services\AccountService\AccountService.csproj", "{9F40E895-9A10-4522-B177-91A84C5BA12E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{9DC7F037-4AD4-491E-B41E-DD55EBD91FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DC7F037-4AD4-491E-B41E-DD55EBD91FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DC7F037-4AD4-491E-B41E-DD55EBD91FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F40E895-9A10-4522-B177-91A84C5BA12E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F40E895-9A10-4522-B177-91A84C5BA12E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F40E895-9A10-4522-B177-91A84C5BA12E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F40E895-9A10-4522-B177-91A84C5BA12E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{4B4196BA-68BE-48F2-918A-C918EFF0B0BC} = {42F2A356-93E3-44E0-81CF-AB59D3FD76B8}
 		{B126D017-EAA3-4A0F-B45E-28361EE3F101} = {42F2A356-93E3-44E0-81CF-AB59D3FD76B8}
 		{9DC7F037-4AD4-491E-B41E-DD55EBD91FD3} = {42F2A356-93E3-44E0-81CF-AB59D3FD76B8}
+		{9F40E895-9A10-4522-B177-91A84C5BA12E} = {42F2A356-93E3-44E0-81CF-AB59D3FD76B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F37CCE9-9209-4AEC-B889-5BF065EE4EE7}
