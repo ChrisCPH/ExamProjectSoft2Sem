@@ -104,6 +104,14 @@ namespace OrderService.Controllers
             await _orderService.DeleteOrderAsync(orderId);
             return NoContent();
         }
+
+        // POST: 
+        [HttpPost("{orderId}/addDriver/{driverId}")]
+        public async Task<IActionResult> AddDriver(int orderId, int driverId)
+        {
+            var order = await _orderService.AddDriver(orderId, driverId);
+            return Ok(order);
+        }
     }
 
 }

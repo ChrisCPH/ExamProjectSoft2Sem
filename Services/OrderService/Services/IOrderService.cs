@@ -14,6 +14,7 @@ namespace OrderService.Services
         Task<List<OrderItem>> GetOrderItemsByOrderIdAsync(int orderId);
         Task<OrderItem?> GetOrderItemByIdAsync(int orderItemId);
         Task DeleteOrderAsync(int orderId);
+        Task<Order> AddDriver(int orderId, int driverID);
     }
 
 }

@@ -118,6 +118,20 @@ namespace OrderService.Services
             await _orderRepository.DeleteOrderAsync(orderId);
             await _orderRepository.SaveChangesAsync();
         }
+
+        public async Task<Order> AddDriver(int orderId, int driverId)
+        {
+            var order = await _orderRepository.GetOrderByIdAsync(orderId);
+            if (order == null)
+            {
+                throw new KeyNotFoundException("Order not found");
+            }
+
+            order.DriverID = driverId;
+
+            await _orderRepository.SaveChangesAsync();
+            return order;
+        }
     }
 
     public class MenuItem
