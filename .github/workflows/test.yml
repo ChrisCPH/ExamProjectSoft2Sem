@@ -12,6 +12,18 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    services:
+      rabbitmq:
+        image: rabbitmq:6.5-management
+        ports:
+          - 5672:5672
+          - 15672:15672
+        options: > 
+          --health-cmd="curl --silent --fail localhost:15672/ > /dev/null"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
     steps:
       # Checkout the code from the repository
       - name: Checkout code
