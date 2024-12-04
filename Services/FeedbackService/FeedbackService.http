@@ -1,0 +1,6 @@
+@FeedbackService_HostAddress = http://localhost:5193
+
+GET {{FeedbackService_HostAddress}}
+Accept: application/json
+
+###

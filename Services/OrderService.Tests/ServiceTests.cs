@@ -7,7 +7,7 @@ using OrderService.Models;
 using OrderService.Data;
 using Microsoft.EntityFrameworkCore;
 
-public class OrderRepositoryTests
+public class ServiceTests
 {
     private OrderDbContext GetInMemoryDbContext()
     {
@@ -28,7 +28,8 @@ public class OrderRepositoryTests
                 CustomerID = 101,
                 RestaurantID = 201,
                 Status = "Pending",
-                TotalPrice = 0
+                TotalPrice = 0,
+                DriverID = 2
             },
             new Order
             {
@@ -36,7 +37,8 @@ public class OrderRepositoryTests
                 CustomerID = 102,
                 RestaurantID = 202,
                 Status = "Completed",
-                TotalPrice = 50.00m
+                TotalPrice = 50.00m,
+                DriverID = 1
             }
         };
 
@@ -289,5 +291,63 @@ public class OrderRepositoryTests
         Assert.Equal(30, order.TotalPrice);
 
         mockRepository.Verify(r => r.SaveChangesAsync(), Times.Once);
+    }
+
+    [Fact]
+    public async Task DeliverOrder_ShouldUpdateOrderStatus_WhenOrderExists()
+    {
+        var dbContext = GetInMemoryDbContext();
+        await SeedData(dbContext);
+
+        var repository = new OrderRepository(dbContext);
+        var orderService = new OrderService.Services.OrderService(repository, new HttpClient());
+
+        var result = await orderService.DeliverOrder(1);
+
+        Assert.NotNull(result);
+        Assert.Equal("Delivered", result.Status);
+
+        var updatedOrder = await dbContext.Order.FindAsync(1);
+        Assert.Equal("Delivered", updatedOrder?.Status);
+    }
+
+    [Fact]
+    public async Task DeliverOrder_ShouldThrowException_WhenOrderDoesNotExist()
+    {
+        var dbContext = GetInMemoryDbContext();
+        await SeedData(dbContext);
+
+        var repository = new OrderRepository(dbContext);
+        var orderService = new OrderService.Services.OrderService(repository, new HttpClient());
+
+        await Assert.ThrowsAsync<KeyNotFoundException>(() => orderService.DeliverOrder(999));
+    }
+
+    [Fact]
+    public async Task AcceptOrder_ShouldUpdateStatus_WhenOrderExists()
+    {
+        var dbContext = GetInMemoryDbContext();
+        await SeedData(dbContext);
+        var repository = new OrderRepository(dbContext);
+        var orderService = new OrderService.Services.OrderService(repository, new HttpClient());
+
+        var result = await orderService.AcceptOrder(1);
+
+        Assert.NotNull(result);
+        Assert.Equal("Order accepted", result.Status);
+
+        var updatedOrder = await dbContext.Order.FindAsync(1);
+        Assert.Equal("Order accepted", updatedOrder?.Status);
+    }
+
+    [Fact]
+    public async Task AcceptOrder_ShouldThrowException_WhenOrderDoesNotExist()
+    {
+        var dbContext = GetInMemoryDbContext();
+        await SeedData(dbContext);
+        var repository = new OrderRepository(dbContext);
+        var orderService = new OrderService.Services.OrderService(repository, new HttpClient());
+
+        await Assert.ThrowsAsync<KeyNotFoundException>(() => orderService.AcceptOrder(999));
     }
 }

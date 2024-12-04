@@ -12,7 +12,7 @@ namespace AccountService.Repositories
         Task UpdateAccountAsync(Account account);
         Task<Account?> GetAccountByNameAsync(string name);
         Task<bool> DeleteAccountAsync(int accountId);
-
+        Task<List<Account>> GetAvailableDrivers();
     }
     public class AccountRepository : IAccountRepository
     {
@@ -68,6 +68,11 @@ namespace AccountService.Repositories
             return true;
         }
 
-
+        public async Task<List<Account>> GetAvailableDrivers()
+        {
+            return await _context.Account
+                .Where(a => a.AccountType == AccountType.DeliveryDriver && a.Status == "Available")
+                .ToListAsync();
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace AccountService.Tests
             mockConfiguration.Setup(config => config["Jwt:Audience"]).Returns("TestAudience");
             mockConfiguration.Setup(config => config["Jwt:ExpiresInMinutes"]).Returns("60");
 
-            _accountService = new AccountService.Services.AccountService(_accountRepository, mockConfiguration.Object);
+            _accountService = new Services.AccountService(_accountRepository, mockConfiguration.Object);
         }
 
         private AccountDbContext GetInMemoryDbContext()
@@ -42,7 +42,7 @@ namespace AccountService.Tests
             return new AccountDbContext(options);
         }
 
-        // Fix login tests and add tests for link restaurant
+        // Fix login tests
         /*
         [Fact]
         public async Task LoginAsync_ShouldReturnToken_WhenCredentialsAreValid()
@@ -229,6 +229,81 @@ namespace AccountService.Tests
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(() => _accountService.DeleteAccountAsync(999));
             Assert.Equal("Account deletion failed or account does not exist.", exception.Message);
+        }
+
+        [Fact]
+        public async Task SetUnavailable_ValidDriver_UpdatesStatus()
+        {
+            var account = new Account
+            {
+                AccountID = 1,
+                AccountType = AccountType.DeliveryDriver,
+                Status = "Available"
+            };
+            _dbContext.Account.Add(account);
+            await _dbContext.SaveChangesAsync();
+
+            var updatedAccount = await _accountService.SetUnavailable(account.AccountID);
+
+            Assert.Equal("Unavailable", updatedAccount.Status);
+            var dbAccount = await _dbContext.Account.FindAsync(account.AccountID);
+            Assert.Equal("Unavailable", dbAccount?.Status);
+        }
+
+        [Fact]
+        public async Task SetUnavailable_NonDriver_ThrowsException()
+        {
+            var account = new Account
+            {
+                AccountID = 2,
+                AccountType = AccountType.Customer,
+                Status = "Available"
+            };
+            _dbContext.Account.Add(account);
+            await _dbContext.SaveChangesAsync();
+
+            await Assert.ThrowsAsync<InvalidOperationException>(
+                () => _accountService.SetUnavailable(account.AccountID));
+        }
+
+        [Fact]
+        public async Task SetAvailable_ValidDriver_UpdatesStatus()
+        {
+            var account = new Account
+            {
+                AccountID = 3,
+                AccountType = AccountType.DeliveryDriver,
+                Status = "Unavailable"
+            };
+            _dbContext.Account.Add(account);
+            await _dbContext.SaveChangesAsync();
+
+            var updatedAccount = await _accountService.SetAvailable(account.AccountID);
+
+            Assert.Equal("Available", updatedAccount.Status);
+            var dbAccount = await _dbContext.Account.FindAsync(account.AccountID);
+            Assert.Equal("Available", dbAccount?.Status);
+        }
+
+        [Fact]
+        public async Task GetAvailableDriverWithLongestWaitTime_ReturnsCorrectDriver()
+        {
+            _dbContext.Account.AddRange(
+                new Account { AccountID = 1, AccountType = AccountType.DeliveryDriver, Status = "Available", StatusChanged = DateTime.UtcNow.AddHours(-2) },
+                new Account { AccountID = 2, AccountType = AccountType.DeliveryDriver, Status = "Available", StatusChanged = DateTime.UtcNow.AddHours(-1) }
+            );
+            await _dbContext.SaveChangesAsync();
+
+            var driverId = await _accountService.GetAvailableDriverWithLongestWaitTime();
+
+            Assert.Equal(1, driverId);
+        }
+
+        [Fact]
+        public async Task GetAvailableDriverWithLongestWaitTime_NoDrivers_ThrowsException()
+        {
+            await Assert.ThrowsAsync<InvalidOperationException>(
+                () => _accountService.GetAvailableDriverWithLongestWaitTime());
         }
 
     }

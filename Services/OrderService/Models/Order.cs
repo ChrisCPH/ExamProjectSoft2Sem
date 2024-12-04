@@ -18,7 +18,7 @@ namespace OrderService.Models
 
         [Required]
         [MaxLength(50)]
-        public string Status { get; set; } = "Pending";
+        public string Status { get; set; } = "Pending"; // "Pending", "Placed", "Ready For Pickup", "Accepted", "Delivered"
 
         public int DriverID { get; set; }
     }

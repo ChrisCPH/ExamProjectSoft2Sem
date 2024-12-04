@@ -17,6 +17,9 @@ namespace AccountService.Services
         Task LinkRestaurant(string name, string address, string category);
         Task<bool> DeleteAccountAsync(int accountId);
         Task<string> GetAccountTypeFromToken(string token);
+        Task<Account> SetUnavailable(int accountId);
+        Task<Account> SetAvailable(int accountId);
+        Task<int> GetAvailableDriverWithLongestWaitTime();
     }
 
     public class AccountService : IAccountService
@@ -159,6 +162,59 @@ namespace AccountService.Services
             }
 
             return true;
+        }
+
+        public async Task<Account> SetUnavailable(int accountId)
+        {
+            var account = await _accountRepository.GetAccountByIdAsync(accountId);
+            if (account?.AccountType != AccountType.DeliveryDriver)
+            {
+                throw new InvalidOperationException("Account is not a delivery driver.");
+            }
+
+            account.Status = "Unavailable";
+            account.StatusChanged = DateTime.UtcNow;
+
+            await _accountRepository.UpdateAccountAsync(account);
+
+            return account;
+        }
+
+        public async Task<Account> SetAvailable(int accountId)
+        {
+            var account = await _accountRepository.GetAccountByIdAsync(accountId);
+            if (account?.AccountType != AccountType.DeliveryDriver)
+            {
+                throw new InvalidOperationException("Account is not a delivery driver.");
+            }
+
+            account.Status = "Available";
+            account.StatusChanged = DateTime.UtcNow;
+
+            await _accountRepository.UpdateAccountAsync(account);
+
+            return account;
+        }
+
+        public async Task<int> GetAvailableDriverWithLongestWaitTime()
+        {
+            var drivers = await _accountRepository.GetAvailableDrivers();
+
+            if (drivers == null || !drivers.Any())
+            {
+                throw new InvalidOperationException("Delivery driver list empty");
+            }
+
+            var driverWithLongestWait = drivers
+                .OrderBy(driver => driver.StatusChanged)
+                .FirstOrDefault();
+
+            if (driverWithLongestWait == null)
+            {
+                throw new InvalidOperationException("No driver found");
+            }
+
+            return driverWithLongestWait.AccountID;
         }
     }
 }

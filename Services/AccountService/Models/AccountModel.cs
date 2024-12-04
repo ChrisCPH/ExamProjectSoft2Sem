@@ -32,12 +32,12 @@ namespace AccountService.Models
         public string Address { get; set; } = string.Empty;
 
         [MaxLength(50)]
-        public string Status { get; set; } = string.Empty;
+        public string Status { get; set; } = string.Empty; // "Available", "Unavailable"
+
+        public DateTime StatusChanged {get; set; } = new DateTime(2000, 1, 1);
 
         [MaxLength(255)]
         public string PaymentInfo { get; set; } = string.Empty;
-
-        public double AvgRating { get; set; }
 
         public int RestaurantSearchID { get; set; }
     }

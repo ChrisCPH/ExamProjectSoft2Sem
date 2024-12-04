@@ -25,6 +25,7 @@ namespace OrderService.Controllers
                 return BadRequest("Invalid CustomerId or RestaurantId");
 
             var orderId = await _orderService.CreateOrderAsync(customerId, restaurantId);
+
             return CreatedAtAction(nameof(GetOrderById), new { orderId }, new { OrderId = orderId });
         }
 
@@ -45,10 +46,10 @@ namespace OrderService.Controllers
         {
             if (orderId <= 0)
                 return BadRequest("Invalid orderId");
-
             try
             {
                 await _orderService.PlaceOrderAsync(orderId);
+
                 return Ok(new { Message = "Order placed successfully." });
             }
             catch (KeyNotFoundException)
@@ -74,7 +75,7 @@ namespace OrderService.Controllers
         {
             var orders = await _orderService.GetAllOrdersAsync();
             if (orders == null)
-                return NotFound(new { Message = "No orders found"});
+                return NotFound(new { Message = "No orders found" });
             return Ok(orders);
         }
 
@@ -105,13 +106,40 @@ namespace OrderService.Controllers
             return NoContent();
         }
 
-        // POST: 
-        [HttpPost("{orderId}/addDriver/{driverId}")]
-        public async Task<IActionResult> AddDriver(int orderId, int driverId)
+        // PATCH: /api/order/orderReady/1
+        [HttpPatch("orderReady/{orderId}")]
+        public async Task<IActionResult> ReadyForPickup(int orderId)
         {
-            var order = await _orderService.AddDriver(orderId, driverId);
+            var order = await _orderService.OrderReadyForPickup(orderId);
+
+            return Ok(order);
+        }
+
+        // PATCH: /api/order/accept/1
+        [HttpPatch("accept/{orderId}")]
+        public async Task<IActionResult> AcceptOrder(int orderId)
+        {
+            var order = await _orderService.AcceptOrder(orderId);
+
+            return Ok(order);
+        }
+
+        // PATCH: /api/order/decline/1
+        [HttpPatch("decline/{orderId}")]
+        public async Task<IActionResult> DeclineOrder(int orderId)
+        {
+            var order = await _orderService.DeclineOrder(orderId);
+
+            return Ok(order);
+        }
+
+        // PATCH: /api/order/deliver/1
+        [HttpPatch("deliver/{orderId}")]
+        public async Task<IActionResult> DeliverOrder(int orderId)
+        {
+            var order = await _orderService.DeliverOrder(orderId);
+
             return Ok(order);
         }
     }
-
 }

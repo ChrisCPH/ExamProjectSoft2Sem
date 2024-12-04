@@ -104,4 +104,27 @@ public class AccountController : ControllerBase
         return Ok(new { AccountType = accountType });
     }
 
+    [HttpPatch("setUnavailable/{accountId}")]
+    public async Task<IActionResult> SetUnavailable(int accountId)
+    {
+        var account = await _accountService.SetUnavailable(accountId);
+
+        return Ok(account);
+    }
+
+    [HttpPatch("setAvailable/{accountId}")]
+    public async Task<IActionResult> SetAvailable(int accountId)
+    {
+        var account = await _accountService.SetAvailable(accountId);
+
+        return Ok(account);
+    }
+
+    [HttpGet("getDriverForDelivery")]
+    public async Task<IActionResult> GetDriverForDelivery()
+    {
+        int driverId = await _accountService.GetAvailableDriverWithLongestWaitTime();
+
+        return Ok(driverId);
+    }
 }
