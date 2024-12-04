@@ -3,10 +3,10 @@ name: Run Tests
 on:
   push:
     branches:
-      - main
+      - main # Adjust to match the branch you want to monitor
   pull_request:
     branches:
-      - main
+      - main # Adjust for PRs into your target branch
 
 jobs:
   build-and-test:
@@ -14,11 +14,13 @@ jobs:
 
     services:
       rabbitmq:
-        image: rabbitmq:3.9-management
+        image: rabbitmq:3.8  # RabbitMQ image version
+        env:
+          RABBITMQ_DEFAULT_USER: guest  # Default user
+          RABBITMQ_DEFAULT_PASS: guest  # Default password
         ports:
-          - 5672:5672
-          - 15672:15672
-        options: "--health-cmd=\"curl --silent --fail localhost:15672/ > /dev/null\" --health-interval=10s --health-timeout=5s --health-retries=3"
+          - 5672:5672  # Exposes AMQP port for messaging
+          - 15672:15672  # Exposes management UI port (optional)
 
     steps:
       # Checkout the code from the repository
