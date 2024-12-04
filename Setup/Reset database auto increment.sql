@@ -1,0 +1,1 @@
+DBCC CHECKIDENT (Account, RESEED, 0)
