@@ -13,7 +13,10 @@ namespace OrderService.Repositories
         Task<List<OrderItem>> GetOrderItemsByOrderIdAsync(int orderId);
         Task<OrderItem?> GetOrderItemByIdAsync(int orderItemId);
         Task DeleteOrderAsync(int orderId);
+        Task<decimal> GetTotalOrderPriceRestaurant(int restaurantId, DateTime startDate, DateTime endDate);
+        Task<int> GetOrderCountRestaurant(int restaurantId, DateTime startDate, DateTime endDate);
+        Task<decimal> GetTotalOrderPriceDriver(int restaurantId, DateTime startDate, DateTime endDate);
+        Task<int> GetOrderCountDriver(int driverId, DateTime startDate, DateTime endDate);
         Task SaveChangesAsync();
     }
-
 }

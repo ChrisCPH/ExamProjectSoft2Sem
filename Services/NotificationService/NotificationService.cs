@@ -19,8 +19,8 @@ public class NotificationService : IDisposable
     private readonly HttpClient _httpClient;
     private readonly string _smtpHost = "smtp.gmail.com";
     private readonly int _smtpPort = 587;
-    private readonly string _email = "";
-    private readonly string _emailPassword = "";
+    private readonly string _email = ""; // Sender email
+    private readonly string _emailPassword = ""; // App password
 
     public NotificationService(string rabbitMqHost, string queueName, HttpClient httpClient)
     {
@@ -66,17 +66,44 @@ public class NotificationService : IDisposable
                     }
 
                     var messageType = messageTypeToken.ToString();
-                    if (string.IsNullOrEmpty(messageType))
-                    {
-                        Console.WriteLine("Message 'Type' field is empty.");
-                        return;
-                    }
 
                     var message = JsonConvert.DeserializeObject<OrderMessage>(messageJson);
 
-                    if (message != null)
+                    if (messageType.Contains("Order", StringComparison.OrdinalIgnoreCase))
                     {
-                        await SendOrderNotification(message, messageType);
+                        var orderMessage = JsonConvert.DeserializeObject<OrderMessage>(messageJson);
+                        if (orderMessage != null)
+                        {
+                            await SendOrderNotification(orderMessage, messageType);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to deserialize OrderMessage.");
+                        }
+                    }
+                    else if (messageType.Contains("Fee", StringComparison.OrdinalIgnoreCase))
+                    {
+                        var feeMessage = JsonConvert.DeserializeObject<FeeMessage>(messageJson);
+                        if (feeMessage != null)
+                        {
+                            await SendFeeNotification(feeMessage);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to deserialize FeePaymentMessage.");
+                        }
+                    }
+                    else if (messageType.Contains("Payment", StringComparison.OrdinalIgnoreCase))
+                    {
+                        var paymentMessage = JsonConvert.DeserializeObject<PaymentMessage>(messageJson);
+                        if (paymentMessage != null)
+                        {
+                            await SendPaymentNotification(paymentMessage);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to deserialize DriverPaymentMessage.");
+                        }
                     }
                     else
                     {
@@ -158,8 +185,8 @@ public class NotificationService : IDisposable
                     {
 
                         var driverEmailSubject = "Order Ready";
-                        var driverEmailBody = @$"Restaurant Address: {restaurantInfo.Email}, 
-                                        Customer Address: {customerInfo.Email}, 
+                        var driverEmailBody = @$"Restaurant Address: {restaurantInfo.Address}, 
+                                        Customer Address: {customerInfo.Address}, 
                                         Order ID: {message.OrderID}, 
                                         Order Details: {menuItemDetails}";
 
@@ -194,9 +221,70 @@ public class NotificationService : IDisposable
         }
     }
 
+    private async Task SendFeeNotification(FeeMessage message)
+    {
+        if (message == null)
+        {
+            Console.WriteLine("Received a null message. Skipping processing.");
+            return;
+        }
+
+        var restaurantInfo = await GetAccountInfoAsync(message.RestaurantID);
+        if (restaurantInfo == null)
+        {
+            Console.WriteLine("Restaurant not found");
+            return;
+        }
+
+        var emailSubject = "Fee Invoice";
+        var emailBody = @$"Fee ID: {message.FeeID}, 
+                        Amount: {message.Amount} DKK, 
+                        Restaurant: {restaurantInfo.Name}, 
+                        Address: {restaurantInfo.Address}, 
+                        Total price of orders: {message.TotalOrderPrice} DKK, 
+                        Total orders: {message.OrderCount}, 
+                        Invoice date: {message.InvoiceDate}, 
+                        Due date: {message.DueDate}";
+
+        await SendEmail(restaurantInfo.Email, emailSubject, emailBody);
+
+        var sms = $"Your order #{message.FeeID} has been delivered! Please leave feedback.";
+        MockSendSms(restaurantInfo.PhoneNumber, sms);
+    }
+
+    private async Task SendPaymentNotification(PaymentMessage message)
+    {
+        if (message == null)
+        {
+            Console.WriteLine("Received a null message. Skipping processing.");
+            return;
+        }
+
+        var driverInfo = await GetAccountInfoAsync(message.DeliveryDriverID);
+        if (driverInfo == null)
+        {
+            Console.WriteLine("Delivery Driver not found");
+            return;
+        }
+
+        var emailSubject = "Paycheck";
+        var emailBody = @$"Payment ID: {message.PaymentID}, 
+                        Amount: {message.Amount} DKK, 
+                        Delivery Driver: {driverInfo.Name}, 
+                        Address: {driverInfo.Address}, 
+                        Total price of deliveries: {message.TotalDeliveryPrice} DKK, 
+                        Total deliveries: {message.DeliveryCount}, 
+                        Date: {message.PaycheckDate}";
+
+        await SendEmail(driverInfo.Email, emailSubject, emailBody);
+
+        var sms = $"Your order #{message.PaymentID} has been delivered! Please leave feedback.";
+        MockSendSms(driverInfo.PhoneNumber, sms);
+    }
+
     public async Task SendEmail(string toEmail, string subject, string body)
     {
-        //toEmail = "";
+        //toEmail = ""; // Use this when testing
         try
         {
             var mailMessage = new MailMessage

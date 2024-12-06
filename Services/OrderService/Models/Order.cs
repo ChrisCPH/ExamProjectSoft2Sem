@@ -21,5 +21,9 @@ namespace OrderService.Models
         public string Status { get; set; } = "Pending"; // "Pending", "Placed", "Ready For Pickup", "Accepted", "Delivered"
 
         public int DriverID { get; set; }
+
+        public DateTime OrderPlaced { get; set; }
+
+        public DateTime OrderDelivered { get; set; }
     }
 }

@@ -1,0 +1,6 @@
+@ManagementService_HostAddress = http://localhost:5242
+
+GET {{ManagementService_HostAddress}}
+Accept: application/json
+
+###

@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         var rabbitMqHost = "localhost";
-        var queueName = "orderQueue";
+        var queueName = "foodDeliveryAppQueue";
         var httpClient = new HttpClient();
 
         var notificationService = new NotificationService(rabbitMqHost, queueName, httpClient);

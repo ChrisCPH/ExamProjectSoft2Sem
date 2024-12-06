@@ -141,5 +141,38 @@ namespace OrderService.Controllers
 
             return Ok(order);
         }
+
+        [HttpPost("restaurant/{restaurantId}/totalprice")]
+        public async Task<IActionResult> GetTotalOrderPriceRestaurant(int restaurantId, [FromBody] DateRequest request)
+        {
+            var totalPrice = await _orderService.GetTotalOrderPriceRestaurant(restaurantId, request.StartDate, request.EndDate);
+            return Ok(totalPrice);
+        }
+
+        [HttpPost("restaurant/{restaurantId}/ordercount")]
+        public async Task<IActionResult> GetOrderCountRestaurant(int restaurantId, [FromBody] DateRequest request)
+        {
+            var orderCount = await _orderService.GetOrderCountRestaurant(restaurantId, request.StartDate, request.EndDate);
+            return Ok(orderCount);
+        }
+
+        [HttpPost("driver/{driverId}/totalprice")]
+        public async Task<IActionResult> GetTotalOrderPriceDriver(int driverId, [FromBody] DateRequest request)
+        {
+            var totalPrice = await _orderService.GetTotalOrderPriceDriver(driverId, request.StartDate, request.EndDate);
+            return Ok(totalPrice);
+        }
+
+        [HttpPost("driver/{driverId}/ordercount")]
+        public async Task<IActionResult> GetOrderCountDriver(int driverId, [FromBody] DateRequest request)
+        {
+            var orderCount = await _orderService.GetOrderCountDriver(driverId, request.StartDate, request.EndDate);
+            return Ok(orderCount);
+        }
+    }
+    public class DateRequest
+    {
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

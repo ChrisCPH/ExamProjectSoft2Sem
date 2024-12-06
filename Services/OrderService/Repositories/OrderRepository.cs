@@ -66,6 +66,46 @@ namespace OrderService.Repositories
             }
         }
 
+        public async Task<decimal> GetTotalOrderPriceRestaurant(int restaurantId, DateTime startDate, DateTime endDate)
+        {
+            return await _context.Set<Order>()
+                .Where(o => o.RestaurantID == restaurantId &&
+                            o.Status == "Delivered" &&
+                            o.OrderDelivered >= startDate &&
+                            o.OrderDelivered <= endDate)
+                .SumAsync(o => o.TotalPrice);
+        }
+
+        public async Task<int> GetOrderCountRestaurant(int restaurantId, DateTime startDate, DateTime endDate)
+        {
+            return await _context.Set<Order>()
+                .Where(o => o.RestaurantID == restaurantId &&
+                            o.Status == "Delivered" &&
+                            o.OrderDelivered >= startDate &&
+                            o.OrderDelivered <= endDate)
+                .CountAsync();
+        }
+
+        public async Task<decimal> GetTotalOrderPriceDriver(int driverId, DateTime startDate, DateTime endDate)
+        {
+            return await _context.Set<Order>()
+                .Where(o => o.DriverID == driverId &&
+                            o.Status == "Delivered" &&
+                            o.OrderDelivered >= startDate &&
+                            o.OrderDelivered <= endDate)
+                .SumAsync(o => o.TotalPrice);
+        }
+
+        public async Task<int> GetOrderCountDriver(int driverId, DateTime startDate, DateTime endDate)
+        {
+            return await _context.Set<Order>()
+                .Where(o => o.DriverID == driverId &&
+                            o.Status == "Delivered" &&
+                            o.OrderDelivered >= startDate &&
+                            o.OrderDelivered <= endDate)
+                .CountAsync();
+        }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

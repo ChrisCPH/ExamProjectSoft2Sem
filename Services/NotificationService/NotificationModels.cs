@@ -13,6 +13,29 @@ namespace NotificationModels
         public List<OrderItemMessage>? OrderItems { get; set; }
     }
 
+    public class FeeMessage
+    {
+        public int FeeID { get; set; }
+        public decimal Amount { get; set; }
+        public int OrderCount { get; set; }
+        public decimal TotalOrderPrice { get; set; }
+        public int RestaurantID { get; set; }
+        public DateTime InvoiceDate { get; set; }
+        public DateTime DueDate { get; set; }
+        public string Status { get; set; } = string.Empty; // Pending, Paid
+    }
+
+    public class PaymentMessage
+    {
+        public int PaymentID { get; set; }
+        public decimal Amount { get; set; }
+        public int DeliveryCount { get; set; }
+        public decimal TotalDeliveryPrice { get; set; }
+        public int DeliveryDriverID { get; set; }
+        public DateTime PaycheckDate { get; set; }
+        public string Status { get; set; } = string.Empty; // Pending, Paid   
+    }
+
     public class OrderItemMessage
     {
         public int OrderItemID { get; set; }

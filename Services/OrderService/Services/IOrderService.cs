@@ -21,6 +21,10 @@ namespace OrderService.Services
         Task<Order> DeclineOrder(int orderId);
         Task<Order> DeliverOrder(int orderId);
         Task<bool> SetDriverUnavailable(int driverId);
+        Task<int> GetOrderCountRestaurant(int restaurantId, DateTime startDate, DateTime endDate);
+        Task<decimal> GetTotalOrderPriceRestaurant(int orderId, DateTime startDate, DateTime endDate);
+        Task<int> GetOrderCountDriver(int restaurantId, DateTime startDate, DateTime endDate);
+        Task<decimal> GetTotalOrderPriceDriver(int orderId, DateTime startDate, DateTime endDate);
     }
 
 }

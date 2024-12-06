@@ -13,7 +13,7 @@ namespace OrderService.Services
         private readonly IOrderRepository _orderRepository;
         private readonly HttpClient _httpClient;
         private readonly string _rabbitMqHost = "localhost";  // RabbitMQ host
-        private readonly string _queueName = "orderQueue";  // Queue name
+        private readonly string _queueName = "foodDeliveryAppQueue";  // Queue name
 
         public OrderService(IOrderRepository orderRepository, HttpClient httpClient)
         {
@@ -78,6 +78,7 @@ namespace OrderService.Services
 
             order.TotalPrice = totalOrderPrice;
             order.Status = "Placed";
+            order.OrderPlaced = DateTime.UtcNow;
 
             PublishOrderMessage("OrderPlaced", order, orderItems);
 
@@ -224,7 +225,7 @@ namespace OrderService.Services
             {
                 throw new KeyNotFoundException("Order not found");
             }
-            
+
             await SetDriverUnavailable(order.DriverID);
 
             order.Status = "Order accepted";
@@ -293,11 +294,34 @@ namespace OrderService.Services
             var orderItems = await _orderRepository.GetOrderItemsByOrderIdAsync(orderId);
 
             order.Status = "Delivered";
+            order.OrderDelivered = DateTime.UtcNow;
 
             PublishOrderMessage("OrderDelivered", order, orderItems);
 
             await _orderRepository.SaveChangesAsync();
             return order;
+        }
+
+        public async Task<decimal> GetTotalOrderPriceRestaurant(int restaurantId, DateTime startDate, DateTime endDate)
+        {
+
+            return await _orderRepository.GetTotalOrderPriceRestaurant(restaurantId, startDate, endDate);
+        }
+
+        public async Task<int> GetOrderCountRestaurant(int restaurantId, DateTime startDate, DateTime endDate)
+        {
+            return await _orderRepository.GetOrderCountRestaurant(restaurantId, startDate, endDate);
+        }
+
+        public async Task<decimal> GetTotalOrderPriceDriver(int driverId, DateTime startDate, DateTime endDate)
+        {
+
+            return await _orderRepository.GetTotalOrderPriceDriver(driverId, startDate, endDate);
+        }
+
+        public async Task<int> GetOrderCountDriver(int driverId, DateTime startDate, DateTime endDate)
+        {
+            return await _orderRepository.GetOrderCountDriver(driverId, startDate, endDate);
         }
     }
 
