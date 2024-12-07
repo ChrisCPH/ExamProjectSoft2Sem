@@ -9,7 +9,7 @@ namespace AccountService.Repositories
         Task<Account> AddAccountAsync(Account account);
         Task<Account?> GetAccountByIdAsync(int id);
         Task<Account?> GetAccountByEmailAsync(string email);
-        Task UpdateAccountAsync(Account account);
+        Task<Account> UpdateAccountAsync(Account account);
         Task<Account?> GetAccountByNameAsync(string name);
         Task<bool> DeleteAccountAsync(int accountId);
         Task<List<Account>> GetAvailableDrivers();
@@ -41,10 +41,11 @@ namespace AccountService.Repositories
             return await _context.Account.FirstOrDefaultAsync(a => a.Email == email);
         }
 
-        public async Task UpdateAccountAsync(Account account)
+        public async Task<Account> UpdateAccountAsync(Account account)
         {
             _context.Account.Update(account);
             await _context.SaveChangesAsync();
+            return account;
         }
 
         public async Task<Account?> GetAccountByNameAsync(string name)

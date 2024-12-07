@@ -127,4 +127,31 @@ public class AccountController : ControllerBase
 
         return Ok(driverId);
     }
+    
+    [HttpPut("update/{id}")]
+    public async Task<IActionResult> UpdateAccount(int id, [FromBody] Account updatedAccount)
+    {
+        if (updatedAccount == null)
+        {
+            return BadRequest("Account data is required.");
+        }
+
+        try
+        {
+            var updated = await _accountService.UpdateAccountAsync(id, updatedAccount);
+            return Ok(updated);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, $"An error occurred: {ex.Message}");
+        }
+    }
 }

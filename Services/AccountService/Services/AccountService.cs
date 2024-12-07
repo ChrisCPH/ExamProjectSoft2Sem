@@ -20,6 +20,7 @@ namespace AccountService.Services
         Task<Account> SetUnavailable(int accountId);
         Task<Account> SetAvailable(int accountId);
         Task<int> GetAvailableDriverWithLongestWaitTime();
+        Task<Account> UpdateAccountAsync(int accountId, Account updatedAccount);
     }
 
     public class AccountService : IAccountService
@@ -215,6 +216,37 @@ namespace AccountService.Services
             }
 
             return driverWithLongestWait.AccountID;
+        }
+
+        public async Task<Account> UpdateAccountAsync(int accountId, Account updatedAccount)
+        {
+            var existingAccount = await _accountRepository.GetAccountByIdAsync(accountId);
+            if (existingAccount == null)
+            {
+                throw new KeyNotFoundException($"No account found with ID {accountId}.");
+            }
+
+            if (!string.IsNullOrEmpty(updatedAccount.Name))
+            {
+                existingAccount.Name = updatedAccount.Name;
+            }
+
+            if (!string.IsNullOrEmpty(updatedAccount.Email) && updatedAccount.Email != existingAccount.Email)
+            {
+                var accountWithEmail = await _accountRepository.GetAccountByEmailAsync(updatedAccount.Email);
+                if (accountWithEmail != null && accountWithEmail.AccountID != accountId)
+                {
+                    throw new InvalidOperationException($"An account with the email '{updatedAccount.Email}' already exists.");
+                }
+                existingAccount.Email = updatedAccount.Email;
+            }
+
+            if (!string.IsNullOrEmpty(updatedAccount.Password))
+            {
+                existingAccount.Password = _passwordHasher.HashPassword(existingAccount, updatedAccount.Password);
+            }
+
+            return await _accountRepository.UpdateAccountAsync(existingAccount);
         }
     }
 }
