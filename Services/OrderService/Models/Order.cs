@@ -22,8 +22,8 @@ namespace OrderService.Models
 
         public int DriverID { get; set; }
 
-        public DateTime OrderPlaced { get; set; }
+        public DateTime OrderPlaced { get; set; } = new DateTime(2000, 1, 1);
 
-        public DateTime OrderDelivered { get; set; }
+        public DateTime OrderDelivered { get; set; } = new DateTime(2000, 1, 1);
     }
 }
