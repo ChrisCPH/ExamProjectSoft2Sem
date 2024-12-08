@@ -12,6 +12,8 @@ I have created a food delivery application, MTOGO, where customers can place ord
 | Database | mssql |
 | CI/CD | GitHub Actions |
 | Testing | XUnit |
+| Api | REST |
+| Messaging | RabbitMQ |
 | Project management | GitHub Projects |
 
 ## User Stories and Acceptance Criteria
