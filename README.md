@@ -1,3 +1,7 @@
+## Introduction
+
+I have created a food delivery application, MTOGO, where customers can place orders, restaurants can manage their menus and orders, and delivery drivers can accept deliveries.
+
 ### Technology Stack
 
 | Layer | Tools |
@@ -10,7 +14,7 @@
 | Testing | XUnit |
 | Project management | GitHub Projects |
 
-### User Stories and Acceptance Criteria
+## User Stories and Acceptance Criteria
 
 #### Customer
 
@@ -160,6 +164,8 @@ Acceptance Criteria:
 
 1. Admin should have real-time access to an order status dashboard showing all open and completed orders.
 
+## Diagrams
+
 ### Domain Model
 
 ![Domain Model](Diagrams/DomainModel.png)
@@ -171,3 +177,45 @@ Acceptance Criteria:
 ### Sequence Diagram
 
 ![Sequence Diagram](Diagrams/SequenceDiagram.png)
+
+### C4 System Context
+
+![System Context](Diagrams/SystemContext.png)
+
+### C4 Container
+
+![Container](Diagrams/ContainerDiagram.png)
+
+### C4 Component
+
+![Compnent](Diagrams/ComponentDiagram.png)
+
+## Event storming
+
+### Domain Events
+
+![Domain Events](Diagrams/DomainEvents.png)
+
+### Event Sequence
+
+![Event Sequence](Diagrams/EventSequence.png)
+
+### Commands and Actors
+
+![Commands and Actors](Diagrams/CommandsAndActors.png)
+
+### Policies
+
+![Policies](Diagrams/Policies.png)
+
+### External systems and read models
+
+![External systems and read models](Diagrams/ExternalSystemsAndReadModels.png)
+
+### Bounded Contexts
+
+![Bounded Contexts](Diagrams/BoundedContexts.png)
+
+
+
+
