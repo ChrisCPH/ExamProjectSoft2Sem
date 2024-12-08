@@ -1,6 +1,6 @@
 ## Introduction
 
-I have created a food delivery application, MTOGO, where customers can place orders, restaurants can manage their menus and orders, and delivery drivers can accept deliveries.
+I have created a food delivery application, MTOGO, where customers can search for restaurant and place orders, restaurants will receive incoming orders and delivery drivers can accept deliveries.
 
 ### Technology Stack
 
