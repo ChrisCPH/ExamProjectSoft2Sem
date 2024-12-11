@@ -13,7 +13,7 @@ https://www.rabbitmq.com/docs/install-windows#chocolatey
 
 Create databases and tables using /Setup/DB_Scripts.sql
 
-create db user with db_owner permissions from the /Setup/DB_User.sql file
+Create a db user with db_owner permissions from the /Setup/DB_User.sql file
 
 If it doesn't work check these things:
 
