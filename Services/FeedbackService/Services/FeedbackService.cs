@@ -31,14 +31,14 @@ namespace FeedbackService.Services
              feedbacks.Average(f => f.FoodRating);
         }
 
-        public async Task<double> CalculateAverageDeliveryRating(int restaurantId)
+        public async Task<double> CalculateAverageDeliveryRating(int driverId)
         {
-            var feedbacks = await _repository.GetFeedbackByDeliveryDriverId(restaurantId);
+            var feedbacks = await _repository.GetFeedbackByDeliveryDriverId(driverId);
 
             if (!feedbacks.Any())
                 return 0;
 
-            return feedbacks.Average(f => f.FoodRating);
+            return feedbacks.Average(f => f.DeliveryRating);
         }
 
         public async Task<Feedback> CreateFeedback(Feedback feedback)
