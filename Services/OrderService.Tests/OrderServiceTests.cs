@@ -6,9 +6,25 @@ using OrderService.Repositories;
 using OrderService.Models;
 using OrderService.Data;
 using Microsoft.EntityFrameworkCore;
+using Moq.Protected;
 
 public class OrderServiceTests
 {
+
+    private readonly Mock<IOrderRepository> _orderRepositoryMock;
+    private readonly OrderService.Services.OrderService _orderService;
+    private readonly Mock<HttpMessageHandler> _httpMessageHandlerMock;
+    private readonly HttpClient _httpClient;
+
+
+    public OrderServiceTests()
+    {
+        _httpMessageHandlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+        _httpClient = new HttpClient(_httpMessageHandlerMock.Object);
+        _orderRepositoryMock = new Mock<IOrderRepository>();
+        _orderService = new OrderService.Services.OrderService(_orderRepositoryMock.Object, _httpClient);
+    }
+
     private OrderDbContext GetInMemoryDbContext()
     {
         var options = new DbContextOptionsBuilder<OrderDbContext>()
@@ -29,16 +45,20 @@ public class OrderServiceTests
                 RestaurantID = 201,
                 Status = "Pending",
                 TotalPrice = 0,
-                DriverID = 2
+                DriverID = 2,
+                OrderPlaced = new DateTime(2025, 01, 05),
+                OrderDelivered = new DateTime(2000, 01, 01) 
             },
             new Order
             {
                 OrderID = 2,
                 CustomerID = 102,
                 RestaurantID = 202,
-                Status = "Completed",
+                Status = "Delivered",
                 TotalPrice = 50.00m,
-                DriverID = 1
+                DriverID = 1,
+                OrderPlaced = new DateTime(2025, 01, 05),
+                OrderDelivered = new DateTime(2025, 01, 25)
             }
         };
 
@@ -349,5 +369,252 @@ public class OrderServiceTests
         var orderService = new OrderService.Services.OrderService(repository, new HttpClient());
 
         await Assert.ThrowsAsync<KeyNotFoundException>(() => orderService.AcceptOrder(999));
+    }
+
+    [Fact]
+    public async Task GetOrderByIdAsync_ExistingOrder_ReturnsOrder()
+    {
+        var order = new Order();
+        _orderRepositoryMock.Setup(r => r.GetOrderByIdAsync(It.IsAny<int>())).ReturnsAsync(order);
+
+        var result = await _orderService.GetOrderByIdAsync(1);
+
+        Assert.Equal(order, result);
+    }
+
+    [Fact]
+    public async Task GetOrderByIdAsync_NonExistingOrder_ReturnsNull()
+    {
+        _orderRepositoryMock.Setup(r => r.GetOrderByIdAsync(It.IsAny<int>())).ReturnsAsync((Order)null!);
+
+        var result = await _orderService.GetOrderByIdAsync(1);
+
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public async Task GetAllOrdersAsync_ReturnsOrders()
+    {
+        var orders = new List<Order> { new Order(), new Order() };
+        _orderRepositoryMock.Setup(r => r.GetAllOrdersAsync()).ReturnsAsync(orders);
+
+        var result = await _orderService.GetAllOrdersAsync();
+
+        Assert.Equal(orders, result);
+    }
+
+    [Fact]
+    public async Task GetOrderItemsByOrderIdAsync_ValidOrderId_ReturnsOrderItems()
+    {
+        var orderItems = new List<OrderItem> { new OrderItem(), new OrderItem() };
+        _orderRepositoryMock.Setup(r => r.GetOrderItemsByOrderIdAsync(It.IsAny<int>())).ReturnsAsync(orderItems);
+
+        var result = await _orderService.GetOrderItemsByOrderIdAsync(1);
+
+        Assert.Equal(orderItems, result);
+    }
+
+    [Fact]
+    public async Task GetOrderItemsByOrderIdAsync_InvalidOrderId_ReturnsEmptyList()
+    {
+        _orderRepositoryMock.Setup(r => r.GetOrderItemsByOrderIdAsync(It.IsAny<int>())).ReturnsAsync(new List<OrderItem>());
+
+        var result = await _orderService.GetOrderItemsByOrderIdAsync(1);
+
+        Assert.Empty(result);
+    }
+
+    [Fact]
+    public async Task GetOrderItemByIdAsync_ExistingOrderItem_ReturnsOrderItem()
+    {
+        var orderItem = new OrderItem();
+        _orderRepositoryMock.Setup(r => r.GetOrderItemByIdAsync(It.IsAny<int>())).ReturnsAsync(orderItem);
+
+        var result = await _orderService.GetOrderItemByIdAsync(1);
+
+        Assert.Equal(orderItem, result);
+    }
+
+    [Fact]
+    public async Task GetOrderItemByIdAsync_NonExistingOrderItem_ReturnsNull()
+    {
+        _orderRepositoryMock.Setup(r => r.GetOrderItemByIdAsync(It.IsAny<int>())).ReturnsAsync((OrderItem)null!);
+
+        var result = await _orderService.GetOrderItemByIdAsync(1);
+
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public async Task GetTotalOrderPriceRestaurant_ValidInput_ReturnsTotalPrice()
+    {
+        var expectedPrice = 100.50m;
+        _orderRepositoryMock.Setup(r => r.GetTotalOrderPriceRestaurant(It.IsAny<int>(), It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+            .ReturnsAsync(expectedPrice);
+
+        var result = await _orderService.GetTotalOrderPriceRestaurant(1, DateTime.Now.AddDays(-7), DateTime.Now);
+
+        Assert.Equal(expectedPrice, result);
+    }
+
+    [Fact]
+    public async Task GetOrderCountRestaurant_ValidInput_ReturnsOrderCount()
+    {
+        var expectedCount = 25;
+        _orderRepositoryMock.Setup(r => r.GetOrderCountRestaurant(It.IsAny<int>(), It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+            .ReturnsAsync(expectedCount);
+
+        var result = await _orderService.GetOrderCountRestaurant(1, DateTime.Now.AddDays(-7), DateTime.Now);
+
+        Assert.Equal(expectedCount, result);
+    }
+
+    [Fact]
+    public async Task GetTotalOrderPriceDriver_ValidInput_ReturnsTotalPrice()
+    {
+        var expectedPrice = 200.75m;
+        _orderRepositoryMock.Setup(r => r.GetTotalOrderPriceDriver(It.IsAny<int>(), It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+            .ReturnsAsync(expectedPrice);
+
+        var result = await _orderService.GetTotalOrderPriceDriver(1, DateTime.Now.AddDays(-7), DateTime.Now);
+
+        Assert.Equal(expectedPrice, result);
+    }
+
+    [Fact]
+    public async Task GetOrderCountDriver_ValidInput_ReturnsOrderCount()
+    {
+        var expectedCount = 30;
+        _orderRepositoryMock.Setup(r => r.GetOrderCountDriver(It.IsAny<int>(), It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+            .ReturnsAsync(expectedCount);
+
+        var result = await _orderService.GetOrderCountDriver(1, DateTime.Now.AddDays(-7), DateTime.Now);
+
+        Assert.Equal(expectedCount, result);
+    }
+
+    [Fact]
+    public async Task SetDriverUnavailable_SuccessfulResponse_ReturnsTrue()
+    {
+        var driverId = 1;
+        var url = $"http://localhost:5290/api/account/setUnavailable/{driverId}";
+        _httpMessageHandlerMock
+            .Protected()
+            .Setup<Task<HttpResponseMessage>>(
+                "SendAsync",
+                ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Patch && req.RequestUri!.ToString() == url),
+                ItExpr.IsAny<CancellationToken>())
+            .ReturnsAsync(new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK
+            });
+
+        var result = await _orderService.SetDriverUnavailable(driverId);
+
+        Assert.True(result);
+    }
+
+    [Fact]
+    public async Task SetDriverUnavailable_UnsuccessfulResponse_ReturnsFalse()
+    {
+        var driverId = 1;
+        var url = $"http://localhost:5290/api/account/setUnavailable/{driverId}";
+        _httpMessageHandlerMock
+            .Protected()
+            .Setup<Task<HttpResponseMessage>>(
+                "SendAsync",
+                ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Patch && req.RequestUri!.ToString() == url),
+                ItExpr.IsAny<CancellationToken>())
+            .ReturnsAsync(new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                ReasonPhrase = "Bad Request"
+            });
+
+        var result = await _orderService.SetDriverUnavailable(driverId);
+
+        Assert.False(result);
+    }
+
+    [Fact]
+    public async Task SetDriverUnavailable_ExceptionThrown_ReturnsFalse()
+    {
+        var driverId = 1;
+        var url = $"http://localhost:5290/api/account/setUnavailable/{driverId}";
+        _httpMessageHandlerMock
+            .Protected()
+            .Setup<Task<HttpResponseMessage>>(
+                "SendAsync",
+                ItExpr.Is<HttpRequestMessage>(req => req.Method == HttpMethod.Patch && req.RequestUri!.ToString() == url),
+                ItExpr.IsAny<CancellationToken>())
+            .ThrowsAsync(new HttpRequestException("Network error"));
+
+        var result = await _orderService.SetDriverUnavailable(driverId);
+
+        Assert.False(result);
+    }
+
+    [Fact]
+    public async Task GetTotalOrderPriceRestaurant()
+    {
+        var context = GetInMemoryDbContext();
+        await SeedData(context);
+        var orderRepository = new OrderRepository(context);
+
+        int restaurantId = 202;
+        DateTime startDate = new DateTime(2025, 01, 01);
+        DateTime endDate = new DateTime(2025, 01, 30);
+
+        var totalPrice = await orderRepository.GetTotalOrderPriceRestaurant(restaurantId, startDate, endDate);
+
+        Assert.Equal(50.00m, totalPrice);
+    }
+
+    [Fact]
+    public async Task GetOrderCountRestaurant()
+    {
+        var context = GetInMemoryDbContext();
+        await SeedData(context);
+        var orderRepository = new OrderRepository(context);
+
+        int restaurantId = 202;
+        DateTime startDate = new DateTime(2025, 01, 01);
+        DateTime endDate = new DateTime(2025, 01, 30);
+
+        var orderCount = await orderRepository.GetOrderCountRestaurant(restaurantId, startDate, endDate);
+
+        Assert.Equal(1, orderCount);
+    }
+
+    [Fact]
+    public async Task GetTotalOrderPriceDriver()
+    {
+        var context = GetInMemoryDbContext();
+        await SeedData(context);
+        var orderRepository = new OrderRepository(context);
+
+        int driverId = 1;
+        DateTime startDate = new DateTime(2025, 01, 01);
+        DateTime endDate = new DateTime(2025, 01, 30);
+
+        var totalPrice = await orderRepository.GetTotalOrderPriceDriver(driverId, startDate, endDate);
+
+        Assert.Equal(50.00m, totalPrice);
+    }
+
+    [Fact]
+    public async Task GetOrderCountDriver()
+    {
+        var context = GetInMemoryDbContext();
+        await SeedData(context);
+        var orderRepository = new OrderRepository(context);
+
+        int driverId = 1;
+        DateTime startDate = new DateTime(2025, 01, 01);
+        DateTime endDate = new DateTime(2025, 01, 30);
+
+        var orderCount = await orderRepository.GetOrderCountDriver(driverId, startDate, endDate);
+
+        Assert.Equal(1, orderCount);
     }
 }

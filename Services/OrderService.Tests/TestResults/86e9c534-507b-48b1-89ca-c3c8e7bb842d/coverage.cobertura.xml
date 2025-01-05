@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.4461" branch-rate="0.2" version="1.9" timestamp="1735836429" lines-covered="178" lines-valid="399" branches-covered="8" branches-valid="40">
+<coverage line-rate="0.7293000000000001" branch-rate="0.45" version="1.9" timestamp="1736120774" lines-covered="291" lines-valid="399" branches-covered="18" branches-valid="40">
   <sources>
     <source>C:\Users\Christoffer\Documents\Softwareudvilkling\Eksamen\Services\OrderService\</source>
   </sources>
   <packages>
-    <package name="OrderService" line-rate="0.4461" branch-rate="0.2" complexity="101">
+    <package name="OrderService" line-rate="0.7293000000000001" branch-rate="0.45" complexity="101">
       <classes>
         <class name="Program" filename="Program.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
@@ -83,13 +83,13 @@
             </method>
             <method name=".ctor" signature="(OrderService.Repositories.IOrderRepository,System.Net.Http.HttpClient)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="15" hits="7" branch="False" />
-                <line number="16" hits="7" branch="False" />
-                <line number="18" hits="7" branch="False" />
-                <line number="19" hits="7" branch="False" />
-                <line number="20" hits="7" branch="False" />
-                <line number="21" hits="7" branch="False" />
-                <line number="22" hits="7" branch="False" />
+                <line number="15" hits="40" branch="False" />
+                <line number="16" hits="40" branch="False" />
+                <line number="18" hits="40" branch="False" />
+                <line number="19" hits="40" branch="False" />
+                <line number="20" hits="40" branch="False" />
+                <line number="21" hits="40" branch="False" />
+                <line number="22" hits="40" branch="False" />
               </lines>
             </method>
           </methods>
@@ -127,13 +127,13 @@
             <line number="125" hits="2" branch="False" />
             <line number="127" hits="2" branch="False" />
             <line number="128" hits="4" branch="False" />
-            <line number="15" hits="7" branch="False" />
-            <line number="16" hits="7" branch="False" />
-            <line number="18" hits="7" branch="False" />
-            <line number="19" hits="7" branch="False" />
-            <line number="20" hits="7" branch="False" />
-            <line number="21" hits="7" branch="False" />
-            <line number="22" hits="7" branch="False" />
+            <line number="15" hits="40" branch="False" />
+            <line number="16" hits="40" branch="False" />
+            <line number="18" hits="40" branch="False" />
+            <line number="19" hits="40" branch="False" />
+            <line number="20" hits="40" branch="False" />
+            <line number="21" hits="40" branch="False" />
+            <line number="22" hits="40" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Services.OrderService/&lt;&gt;c" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
@@ -408,20 +408,20 @@
             <line number="303" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;GetAllOrdersAsync&gt;d__11" filename="Services\OrderService.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Services.OrderService/&lt;GetAllOrdersAsync&gt;d__11" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="136" hits="0" branch="False" />
-                <line number="137" hits="0" branch="False" />
-                <line number="138" hits="0" branch="False" />
+                <line number="136" hits="1" branch="False" />
+                <line number="137" hits="1" branch="False" />
+                <line number="138" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="136" hits="0" branch="False" />
-            <line number="137" hits="0" branch="False" />
-            <line number="138" hits="0" branch="False" />
+            <line number="136" hits="1" branch="False" />
+            <line number="137" hits="1" branch="False" />
+            <line number="138" hits="1" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Services.OrderService/&lt;GetAvailableDeliveryDriver&gt;d__16" filename="Services\OrderService.cs" line-rate="0" branch-rate="0" complexity="2">
@@ -506,116 +506,116 @@
             <line number="66" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;GetOrderByIdAsync&gt;d__10" filename="Services\OrderService.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Services.OrderService/&lt;GetOrderByIdAsync&gt;d__10" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="131" hits="0" branch="False" />
-                <line number="132" hits="0" branch="False" />
-                <line number="133" hits="0" branch="False" />
+                <line number="131" hits="2" branch="False" />
+                <line number="132" hits="2" branch="False" />
+                <line number="133" hits="2" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="131" hits="0" branch="False" />
-            <line number="132" hits="0" branch="False" />
-            <line number="133" hits="0" branch="False" />
+            <line number="131" hits="2" branch="False" />
+            <line number="132" hits="2" branch="False" />
+            <line number="133" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;GetOrderCountDriver&gt;d__25" filename="Services\OrderService.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Services.OrderService/&lt;GetOrderCountDriver&gt;d__25" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="323" hits="0" branch="False" />
-                <line number="324" hits="0" branch="False" />
-                <line number="325" hits="0" branch="False" />
+                <line number="323" hits="1" branch="False" />
+                <line number="324" hits="1" branch="False" />
+                <line number="325" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="323" hits="0" branch="False" />
-            <line number="324" hits="0" branch="False" />
-            <line number="325" hits="0" branch="False" />
+            <line number="323" hits="1" branch="False" />
+            <line number="324" hits="1" branch="False" />
+            <line number="325" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;GetOrderCountRestaurant&gt;d__23" filename="Services\OrderService.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Services.OrderService/&lt;GetOrderCountRestaurant&gt;d__23" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="312" hits="0" branch="False" />
-                <line number="313" hits="0" branch="False" />
-                <line number="314" hits="0" branch="False" />
+                <line number="312" hits="1" branch="False" />
+                <line number="313" hits="1" branch="False" />
+                <line number="314" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="312" hits="0" branch="False" />
-            <line number="313" hits="0" branch="False" />
-            <line number="314" hits="0" branch="False" />
+            <line number="312" hits="1" branch="False" />
+            <line number="313" hits="1" branch="False" />
+            <line number="314" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;GetOrderItemByIdAsync&gt;d__13" filename="Services\OrderService.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Services.OrderService/&lt;GetOrderItemByIdAsync&gt;d__13" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="146" hits="0" branch="False" />
-                <line number="147" hits="0" branch="False" />
-                <line number="148" hits="0" branch="False" />
+                <line number="146" hits="2" branch="False" />
+                <line number="147" hits="2" branch="False" />
+                <line number="148" hits="2" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="146" hits="0" branch="False" />
-            <line number="147" hits="0" branch="False" />
-            <line number="148" hits="0" branch="False" />
+            <line number="146" hits="2" branch="False" />
+            <line number="147" hits="2" branch="False" />
+            <line number="148" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;GetOrderItemsByOrderIdAsync&gt;d__12" filename="Services\OrderService.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Services.OrderService/&lt;GetOrderItemsByOrderIdAsync&gt;d__12" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="141" hits="0" branch="False" />
-                <line number="142" hits="0" branch="False" />
-                <line number="143" hits="0" branch="False" />
+                <line number="141" hits="2" branch="False" />
+                <line number="142" hits="2" branch="False" />
+                <line number="143" hits="2" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="141" hits="0" branch="False" />
-            <line number="142" hits="0" branch="False" />
-            <line number="143" hits="0" branch="False" />
+            <line number="141" hits="2" branch="False" />
+            <line number="142" hits="2" branch="False" />
+            <line number="143" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;GetTotalOrderPriceDriver&gt;d__24" filename="Services\OrderService.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Services.OrderService/&lt;GetTotalOrderPriceDriver&gt;d__24" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="317" hits="0" branch="False" />
-                <line number="319" hits="0" branch="False" />
-                <line number="320" hits="0" branch="False" />
+                <line number="317" hits="1" branch="False" />
+                <line number="319" hits="1" branch="False" />
+                <line number="320" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="317" hits="0" branch="False" />
-            <line number="319" hits="0" branch="False" />
-            <line number="320" hits="0" branch="False" />
+            <line number="317" hits="1" branch="False" />
+            <line number="319" hits="1" branch="False" />
+            <line number="320" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;GetTotalOrderPriceRestaurant&gt;d__22" filename="Services\OrderService.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Services.OrderService/&lt;GetTotalOrderPriceRestaurant&gt;d__22" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="306" hits="0" branch="False" />
-                <line number="308" hits="0" branch="False" />
-                <line number="309" hits="0" branch="False" />
+                <line number="306" hits="1" branch="False" />
+                <line number="308" hits="1" branch="False" />
+                <line number="309" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="306" hits="0" branch="False" />
-            <line number="308" hits="0" branch="False" />
-            <line number="309" hits="0" branch="False" />
+            <line number="306" hits="1" branch="False" />
+            <line number="308" hits="1" branch="False" />
+            <line number="309" hits="1" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Services.OrderService/&lt;OrderReadyForPickup&gt;d__17" filename="Services\OrderService.cs" line-rate="0" branch-rate="0" complexity="2">
@@ -702,54 +702,54 @@
             <line number="86" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Services.OrderService/&lt;SetDriverUnavailable&gt;d__20" filename="Services\OrderService.cs" line-rate="0.5625" branch-rate="0" complexity="2">
+        <class name="OrderService.Services.OrderService/&lt;SetDriverUnavailable&gt;d__20" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0.5625" branch-rate="0" complexity="2">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
               <lines>
-                <line number="261" hits="1" branch="False" />
-                <line number="263" hits="1" branch="False" />
-                <line number="264" hits="1" branch="False" />
-                <line number="266" hits="1" branch="False" />
-                <line number="268" hits="0" branch="True" condition-coverage="0% (0/2)">
+                <line number="261" hits="4" branch="False" />
+                <line number="263" hits="4" branch="False" />
+                <line number="264" hits="4" branch="False" />
+                <line number="266" hits="4" branch="False" />
+                <line number="268" hits="2" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="229" type="jump" coverage="0%" />
+                    <condition number="229" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="269" hits="0" branch="False" />
-                <line number="270" hits="0" branch="False" />
-                <line number="271" hits="0" branch="False" />
-                <line number="274" hits="0" branch="False" />
-                <line number="275" hits="0" branch="False" />
-                <line number="276" hits="0" branch="False" />
-                <line number="279" hits="1" branch="False" />
-                <line number="280" hits="1" branch="False" />
-                <line number="281" hits="1" branch="False" />
-                <line number="282" hits="1" branch="False" />
-                <line number="284" hits="1" branch="False" />
+                <line number="269" hits="1" branch="False" />
+                <line number="270" hits="1" branch="False" />
+                <line number="271" hits="1" branch="False" />
+                <line number="274" hits="1" branch="False" />
+                <line number="275" hits="1" branch="False" />
+                <line number="276" hits="1" branch="False" />
+                <line number="279" hits="2" branch="False" />
+                <line number="280" hits="2" branch="False" />
+                <line number="281" hits="2" branch="False" />
+                <line number="282" hits="2" branch="False" />
+                <line number="284" hits="4" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="261" hits="1" branch="False" />
-            <line number="263" hits="1" branch="False" />
-            <line number="264" hits="1" branch="False" />
-            <line number="266" hits="1" branch="False" />
-            <line number="268" hits="0" branch="True" condition-coverage="0% (0/2)">
+            <line number="261" hits="4" branch="False" />
+            <line number="263" hits="4" branch="False" />
+            <line number="264" hits="4" branch="False" />
+            <line number="266" hits="4" branch="False" />
+            <line number="268" hits="2" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="229" type="jump" coverage="0%" />
+                <condition number="229" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="269" hits="0" branch="False" />
-            <line number="270" hits="0" branch="False" />
-            <line number="271" hits="0" branch="False" />
-            <line number="274" hits="0" branch="False" />
-            <line number="275" hits="0" branch="False" />
-            <line number="276" hits="0" branch="False" />
-            <line number="279" hits="1" branch="False" />
-            <line number="280" hits="1" branch="False" />
-            <line number="281" hits="1" branch="False" />
-            <line number="282" hits="1" branch="False" />
-            <line number="284" hits="1" branch="False" />
+            <line number="269" hits="1" branch="False" />
+            <line number="270" hits="1" branch="False" />
+            <line number="271" hits="1" branch="False" />
+            <line number="274" hits="1" branch="False" />
+            <line number="275" hits="1" branch="False" />
+            <line number="276" hits="1" branch="False" />
+            <line number="279" hits="2" branch="False" />
+            <line number="280" hits="2" branch="False" />
+            <line number="281" hits="2" branch="False" />
+            <line number="282" hits="2" branch="False" />
+            <line number="284" hits="4" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Services.MenuItem" filename="Services\OrderService.cs" line-rate="1" branch-rate="1" complexity="5">
@@ -792,18 +792,18 @@
           <methods>
             <method name=".ctor" signature="(OrderService.Data.OrderDbContext)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="11" hits="12" branch="False" />
-                <line number="12" hits="12" branch="False" />
-                <line number="13" hits="12" branch="False" />
-                <line number="14" hits="12" branch="False" />
+                <line number="11" hits="16" branch="False" />
+                <line number="12" hits="16" branch="False" />
+                <line number="13" hits="16" branch="False" />
+                <line number="14" hits="16" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="11" hits="12" branch="False" />
-            <line number="12" hits="12" branch="False" />
-            <line number="13" hits="12" branch="False" />
-            <line number="14" hits="12" branch="False" />
+            <line number="11" hits="16" branch="False" />
+            <line number="12" hits="16" branch="False" />
+            <line number="13" hits="16" branch="False" />
+            <line number="14" hits="16" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Repositories.OrderRepository/&lt;AddOrderAsync&gt;d__2" filename="Repositories\OrderRepository.cs" line-rate="1" branch-rate="1" complexity="1">
@@ -922,56 +922,56 @@
             <line number="32" hits="5" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Repositories.OrderRepository/&lt;GetOrderCountDriver&gt;d__12" filename="Repositories\OrderRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Repositories.OrderRepository/&lt;GetOrderCountDriver&gt;d__12" filename="Repositories\OrderRepository.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="100" hits="0" branch="False" />
-                <line number="101" hits="0" branch="False" />
-                <line number="102" hits="0" branch="False" />
-                <line number="103" hits="0" branch="False" />
-                <line number="104" hits="0" branch="False" />
-                <line number="105" hits="0" branch="False" />
-                <line number="106" hits="0" branch="False" />
-                <line number="107" hits="0" branch="False" />
+                <line number="100" hits="1" branch="False" />
+                <line number="101" hits="1" branch="False" />
+                <line number="102" hits="1" branch="False" />
+                <line number="103" hits="1" branch="False" />
+                <line number="104" hits="1" branch="False" />
+                <line number="105" hits="1" branch="False" />
+                <line number="106" hits="1" branch="False" />
+                <line number="107" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="100" hits="0" branch="False" />
-            <line number="101" hits="0" branch="False" />
-            <line number="102" hits="0" branch="False" />
-            <line number="103" hits="0" branch="False" />
-            <line number="104" hits="0" branch="False" />
-            <line number="105" hits="0" branch="False" />
-            <line number="106" hits="0" branch="False" />
-            <line number="107" hits="0" branch="False" />
+            <line number="100" hits="1" branch="False" />
+            <line number="101" hits="1" branch="False" />
+            <line number="102" hits="1" branch="False" />
+            <line number="103" hits="1" branch="False" />
+            <line number="104" hits="1" branch="False" />
+            <line number="105" hits="1" branch="False" />
+            <line number="106" hits="1" branch="False" />
+            <line number="107" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Repositories.OrderRepository/&lt;GetOrderCountRestaurant&gt;d__10" filename="Repositories\OrderRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Repositories.OrderRepository/&lt;GetOrderCountRestaurant&gt;d__10" filename="Repositories\OrderRepository.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="80" hits="0" branch="False" />
-                <line number="81" hits="0" branch="False" />
-                <line number="82" hits="0" branch="False" />
-                <line number="83" hits="0" branch="False" />
-                <line number="84" hits="0" branch="False" />
-                <line number="85" hits="0" branch="False" />
-                <line number="86" hits="0" branch="False" />
-                <line number="87" hits="0" branch="False" />
+                <line number="80" hits="1" branch="False" />
+                <line number="81" hits="1" branch="False" />
+                <line number="82" hits="1" branch="False" />
+                <line number="83" hits="1" branch="False" />
+                <line number="84" hits="1" branch="False" />
+                <line number="85" hits="1" branch="False" />
+                <line number="86" hits="1" branch="False" />
+                <line number="87" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="80" hits="0" branch="False" />
-            <line number="81" hits="0" branch="False" />
-            <line number="82" hits="0" branch="False" />
-            <line number="83" hits="0" branch="False" />
-            <line number="84" hits="0" branch="False" />
-            <line number="85" hits="0" branch="False" />
-            <line number="86" hits="0" branch="False" />
-            <line number="87" hits="0" branch="False" />
+            <line number="80" hits="1" branch="False" />
+            <line number="81" hits="1" branch="False" />
+            <line number="82" hits="1" branch="False" />
+            <line number="83" hits="1" branch="False" />
+            <line number="84" hits="1" branch="False" />
+            <line number="85" hits="1" branch="False" />
+            <line number="86" hits="1" branch="False" />
+            <line number="87" hits="1" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Repositories.OrderRepository/&lt;GetOrderItemByIdAsync&gt;d__7" filename="Repositories\OrderRepository.cs" line-rate="1" branch-rate="1" complexity="1">
@@ -1010,56 +1010,56 @@
             <line number="44" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Repositories.OrderRepository/&lt;GetTotalOrderPriceDriver&gt;d__11" filename="Repositories\OrderRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Repositories.OrderRepository/&lt;GetTotalOrderPriceDriver&gt;d__11" filename="Repositories\OrderRepository.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="90" hits="0" branch="False" />
-                <line number="91" hits="0" branch="False" />
-                <line number="92" hits="0" branch="False" />
-                <line number="93" hits="0" branch="False" />
-                <line number="94" hits="0" branch="False" />
-                <line number="95" hits="0" branch="False" />
-                <line number="96" hits="0" branch="False" />
-                <line number="97" hits="0" branch="False" />
+                <line number="90" hits="1" branch="False" />
+                <line number="91" hits="1" branch="False" />
+                <line number="92" hits="1" branch="False" />
+                <line number="93" hits="1" branch="False" />
+                <line number="94" hits="1" branch="False" />
+                <line number="95" hits="1" branch="False" />
+                <line number="96" hits="1" branch="False" />
+                <line number="97" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="90" hits="0" branch="False" />
-            <line number="91" hits="0" branch="False" />
-            <line number="92" hits="0" branch="False" />
-            <line number="93" hits="0" branch="False" />
-            <line number="94" hits="0" branch="False" />
-            <line number="95" hits="0" branch="False" />
-            <line number="96" hits="0" branch="False" />
-            <line number="97" hits="0" branch="False" />
+            <line number="90" hits="1" branch="False" />
+            <line number="91" hits="1" branch="False" />
+            <line number="92" hits="1" branch="False" />
+            <line number="93" hits="1" branch="False" />
+            <line number="94" hits="1" branch="False" />
+            <line number="95" hits="1" branch="False" />
+            <line number="96" hits="1" branch="False" />
+            <line number="97" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Repositories.OrderRepository/&lt;GetTotalOrderPriceRestaurant&gt;d__9" filename="Repositories\OrderRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Repositories.OrderRepository/&lt;GetTotalOrderPriceRestaurant&gt;d__9" filename="Repositories\OrderRepository.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="70" hits="0" branch="False" />
-                <line number="71" hits="0" branch="False" />
-                <line number="72" hits="0" branch="False" />
-                <line number="73" hits="0" branch="False" />
-                <line number="74" hits="0" branch="False" />
-                <line number="75" hits="0" branch="False" />
-                <line number="76" hits="0" branch="False" />
-                <line number="77" hits="0" branch="False" />
+                <line number="70" hits="1" branch="False" />
+                <line number="71" hits="1" branch="False" />
+                <line number="72" hits="1" branch="False" />
+                <line number="73" hits="1" branch="False" />
+                <line number="74" hits="1" branch="False" />
+                <line number="75" hits="1" branch="False" />
+                <line number="76" hits="1" branch="False" />
+                <line number="77" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="70" hits="0" branch="False" />
-            <line number="71" hits="0" branch="False" />
-            <line number="72" hits="0" branch="False" />
-            <line number="73" hits="0" branch="False" />
-            <line number="74" hits="0" branch="False" />
-            <line number="75" hits="0" branch="False" />
-            <line number="76" hits="0" branch="False" />
-            <line number="77" hits="0" branch="False" />
+            <line number="70" hits="1" branch="False" />
+            <line number="71" hits="1" branch="False" />
+            <line number="72" hits="1" branch="False" />
+            <line number="73" hits="1" branch="False" />
+            <line number="74" hits="1" branch="False" />
+            <line number="75" hits="1" branch="False" />
+            <line number="76" hits="1" branch="False" />
+            <line number="77" hits="1" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Repositories.OrderRepository/&lt;SaveChangesAsync&gt;d__13" filename="Repositories\OrderRepository.cs" line-rate="1" branch-rate="1" complexity="1">
@@ -1082,182 +1082,182 @@
           <methods>
             <method name="get_OrderID" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="36" branch="False" />
+                <line number="10" hits="44" branch="False" />
               </lines>
             </method>
             <method name="get_CustomerID" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="12" hits="31" branch="False" />
+                <line number="12" hits="39" branch="False" />
               </lines>
             </method>
             <method name="get_RestaurantID" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="14" hits="30" branch="False" />
+                <line number="14" hits="38" branch="False" />
               </lines>
             </method>
             <method name="get_TotalPrice" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="17" hits="33" branch="False" />
+                <line number="17" hits="41" branch="False" />
               </lines>
             </method>
             <method name="get_Status" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="21" hits="66" branch="False" />
+                <line number="21" hits="90" branch="False" />
               </lines>
             </method>
             <method name="get_DriverID" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="23" hits="27" branch="False" />
+                <line number="23" hits="35" branch="False" />
               </lines>
             </method>
             <method name="get_OrderPlaced" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="25" hits="28" branch="False" />
+                <line number="25" hits="76" branch="False" />
               </lines>
             </method>
             <method name="get_OrderDelivered" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="27" hits="28" branch="False" />
+                <line number="27" hits="76" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="10" hits="36" branch="False" />
-            <line number="12" hits="31" branch="False" />
-            <line number="14" hits="30" branch="False" />
-            <line number="17" hits="33" branch="False" />
-            <line number="21" hits="66" branch="False" />
-            <line number="23" hits="27" branch="False" />
-            <line number="25" hits="28" branch="False" />
-            <line number="27" hits="28" branch="False" />
+            <line number="10" hits="44" branch="False" />
+            <line number="12" hits="39" branch="False" />
+            <line number="14" hits="38" branch="False" />
+            <line number="17" hits="41" branch="False" />
+            <line number="21" hits="90" branch="False" />
+            <line number="23" hits="35" branch="False" />
+            <line number="25" hits="76" branch="False" />
+            <line number="27" hits="76" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Models.OrderItem" filename="Models\OrderItem.cs" line-rate="1" branch-rate="1" complexity="5">
           <methods>
             <method name="get_OrderItemID" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="45" branch="False" />
+                <line number="10" hits="57" branch="False" />
               </lines>
             </method>
             <method name="get_OrderID" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="13" hits="42" branch="False" />
+                <line number="13" hits="54" branch="False" />
               </lines>
             </method>
             <method name="get_MenuItemID" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="15" hits="44" branch="False" />
+                <line number="15" hits="56" branch="False" />
               </lines>
             </method>
             <method name="get_Quantity" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="17" hits="43" branch="False" />
+                <line number="17" hits="55" branch="False" />
               </lines>
             </method>
             <method name="get_TotalPrice" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="20" hits="49" branch="False" />
+                <line number="20" hits="61" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="10" hits="45" branch="False" />
-            <line number="13" hits="42" branch="False" />
-            <line number="15" hits="44" branch="False" />
-            <line number="17" hits="43" branch="False" />
-            <line number="20" hits="49" branch="False" />
+            <line number="10" hits="57" branch="False" />
+            <line number="13" hits="54" branch="False" />
+            <line number="15" hits="56" branch="False" />
+            <line number="17" hits="55" branch="False" />
+            <line number="20" hits="61" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Data.OrderDbContext" filename="Data\OrderDbContext.cs" line-rate="1" branch-rate="1" complexity="3">
           <methods>
             <method name="get_Order" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="51" branch="False" />
+                <line number="10" hits="63" branch="False" />
               </lines>
             </method>
             <method name="get_OrderItem" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="11" hits="45" branch="False" />
+                <line number="11" hits="57" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.DbContextOptions`1&lt;OrderService.Data.OrderDbContext&gt;)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="8" hits="36" branch="False" />
+                <line number="8" hits="48" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="10" hits="51" branch="False" />
-            <line number="11" hits="45" branch="False" />
-            <line number="8" hits="36" branch="False" />
+            <line number="10" hits="63" branch="False" />
+            <line number="11" hits="57" branch="False" />
+            <line number="8" hits="48" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Controllers.OrderController" filename="Controllers\OrderController.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name=".ctor" signature="(OrderService.Services.IOrderService)" line-rate="0" branch-rate="1" complexity="1">
+            <method name=".ctor" signature="(OrderService.Services.IOrderService)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="15" hits="0" branch="False" />
-                <line number="16" hits="0" branch="False" />
-                <line number="17" hits="0" branch="False" />
-                <line number="18" hits="0" branch="False" />
+                <line number="15" hits="12" branch="False" />
+                <line number="16" hits="12" branch="False" />
+                <line number="17" hits="12" branch="False" />
+                <line number="18" hits="12" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="15" hits="0" branch="False" />
-            <line number="16" hits="0" branch="False" />
-            <line number="17" hits="0" branch="False" />
-            <line number="18" hits="0" branch="False" />
+            <line number="15" hits="12" branch="False" />
+            <line number="16" hits="12" branch="False" />
+            <line number="17" hits="12" branch="False" />
+            <line number="18" hits="12" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;AcceptOrder&gt;d__11" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Controllers.OrderController/&lt;AcceptOrder&gt;d__11" filename="Controllers\OrderController.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="121" hits="0" branch="False" />
-                <line number="122" hits="0" branch="False" />
-                <line number="124" hits="0" branch="False" />
-                <line number="125" hits="0" branch="False" />
+                <line number="121" hits="1" branch="False" />
+                <line number="122" hits="1" branch="False" />
+                <line number="124" hits="1" branch="False" />
+                <line number="125" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="121" hits="0" branch="False" />
-            <line number="122" hits="0" branch="False" />
-            <line number="124" hits="0" branch="False" />
-            <line number="125" hits="0" branch="False" />
+            <line number="121" hits="1" branch="False" />
+            <line number="122" hits="1" branch="False" />
+            <line number="124" hits="1" branch="False" />
+            <line number="125" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;CreateOrder&gt;d__2" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="0" complexity="4">
+        <class name="OrderService.Controllers.OrderController/&lt;CreateOrder&gt;d__2" filename="Controllers\OrderController.cs" line-rate="1" branch-rate="1" complexity="4">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="4">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="4">
               <lines>
-                <line number="23" hits="0" branch="False" />
-                <line number="24" hits="0" branch="True" condition-coverage="0% (0/4)">
+                <line number="23" hits="2" branch="False" />
+                <line number="24" hits="2" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
-                    <condition number="25" type="jump" coverage="0%" />
-                    <condition number="44" type="jump" coverage="0%" />
+                    <condition number="25" type="jump" coverage="100%" />
+                    <condition number="44" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="25" hits="0" branch="False" />
-                <line number="27" hits="0" branch="False" />
-                <line number="29" hits="0" branch="False" />
-                <line number="30" hits="0" branch="False" />
+                <line number="25" hits="1" branch="False" />
+                <line number="27" hits="1" branch="False" />
+                <line number="29" hits="1" branch="False" />
+                <line number="30" hits="2" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="23" hits="0" branch="False" />
-            <line number="24" hits="0" branch="True" condition-coverage="0% (0/4)">
+            <line number="23" hits="2" branch="False" />
+            <line number="24" hits="2" branch="True" condition-coverage="100% (4/4)">
               <conditions>
-                <condition number="25" type="jump" coverage="0%" />
-                <condition number="44" type="jump" coverage="0%" />
+                <condition number="25" type="jump" coverage="100%" />
+                <condition number="44" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="25" hits="0" branch="False" />
-            <line number="27" hits="0" branch="False" />
-            <line number="29" hits="0" branch="False" />
-            <line number="30" hits="0" branch="False" />
+            <line number="25" hits="1" branch="False" />
+            <line number="27" hits="1" branch="False" />
+            <line number="29" hits="1" branch="False" />
+            <line number="30" hits="2" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Controllers.OrderController/&lt;CreateOrderItem&gt;d__3" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="0" complexity="6">
@@ -1294,118 +1294,118 @@
             <line number="41" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;DeclineOrder&gt;d__12" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Controllers.OrderController/&lt;DeclineOrder&gt;d__12" filename="Controllers\OrderController.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="130" hits="0" branch="False" />
-                <line number="131" hits="0" branch="False" />
-                <line number="133" hits="0" branch="False" />
-                <line number="134" hits="0" branch="False" />
+                <line number="130" hits="1" branch="False" />
+                <line number="131" hits="1" branch="False" />
+                <line number="133" hits="1" branch="False" />
+                <line number="134" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="130" hits="0" branch="False" />
-            <line number="131" hits="0" branch="False" />
-            <line number="133" hits="0" branch="False" />
-            <line number="134" hits="0" branch="False" />
+            <line number="130" hits="1" branch="False" />
+            <line number="131" hits="1" branch="False" />
+            <line number="133" hits="1" branch="False" />
+            <line number="134" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;DeleteOrder&gt;d__9" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Controllers.OrderController/&lt;DeleteOrder&gt;d__9" filename="Controllers\OrderController.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="104" hits="0" branch="False" />
-                <line number="105" hits="0" branch="False" />
-                <line number="106" hits="0" branch="False" />
-                <line number="107" hits="0" branch="False" />
+                <line number="104" hits="1" branch="False" />
+                <line number="105" hits="1" branch="False" />
+                <line number="106" hits="1" branch="False" />
+                <line number="107" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="104" hits="0" branch="False" />
-            <line number="105" hits="0" branch="False" />
-            <line number="106" hits="0" branch="False" />
-            <line number="107" hits="0" branch="False" />
+            <line number="104" hits="1" branch="False" />
+            <line number="105" hits="1" branch="False" />
+            <line number="106" hits="1" branch="False" />
+            <line number="107" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;DeliverOrder&gt;d__13" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Controllers.OrderController/&lt;DeliverOrder&gt;d__13" filename="Controllers\OrderController.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="139" hits="0" branch="False" />
-                <line number="140" hits="0" branch="False" />
-                <line number="142" hits="0" branch="False" />
-                <line number="143" hits="0" branch="False" />
+                <line number="139" hits="1" branch="False" />
+                <line number="140" hits="1" branch="False" />
+                <line number="142" hits="1" branch="False" />
+                <line number="143" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="139" hits="0" branch="False" />
-            <line number="140" hits="0" branch="False" />
-            <line number="142" hits="0" branch="False" />
-            <line number="143" hits="0" branch="False" />
+            <line number="139" hits="1" branch="False" />
+            <line number="140" hits="1" branch="False" />
+            <line number="142" hits="1" branch="False" />
+            <line number="143" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;GetAllOrders&gt;d__6" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="0" complexity="2">
+        <class name="OrderService.Controllers.OrderController/&lt;GetAllOrders&gt;d__6" filename="Controllers\OrderController.cs" line-rate="0.8332999999999999" branch-rate="0.5" complexity="2">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+            <method name="MoveNext" signature="()" line-rate="0.8332999999999999" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="75" hits="0" branch="False" />
-                <line number="76" hits="0" branch="False" />
-                <line number="77" hits="0" branch="True" condition-coverage="0% (0/2)">
+                <line number="75" hits="1" branch="False" />
+                <line number="76" hits="1" branch="False" />
+                <line number="77" hits="1" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="158" type="jump" coverage="0%" />
+                    <condition number="158" type="jump" coverage="50%" />
                   </conditions>
                 </line>
                 <line number="78" hits="0" branch="False" />
-                <line number="79" hits="0" branch="False" />
-                <line number="80" hits="0" branch="False" />
+                <line number="79" hits="1" branch="False" />
+                <line number="80" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="75" hits="0" branch="False" />
-            <line number="76" hits="0" branch="False" />
-            <line number="77" hits="0" branch="True" condition-coverage="0% (0/2)">
+            <line number="75" hits="1" branch="False" />
+            <line number="76" hits="1" branch="False" />
+            <line number="77" hits="1" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="158" type="jump" coverage="0%" />
+                <condition number="158" type="jump" coverage="50%" />
               </conditions>
             </line>
             <line number="78" hits="0" branch="False" />
-            <line number="79" hits="0" branch="False" />
-            <line number="80" hits="0" branch="False" />
+            <line number="79" hits="1" branch="False" />
+            <line number="80" hits="1" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;GetOrderById&gt;d__5" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="0" complexity="2">
+        <class name="OrderService.Controllers.OrderController/&lt;GetOrderById&gt;d__5" filename="Controllers\OrderController.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="2">
               <lines>
-                <line number="64" hits="0" branch="False" />
-                <line number="65" hits="0" branch="False" />
-                <line number="66" hits="0" branch="True" condition-coverage="0% (0/2)">
+                <line number="64" hits="2" branch="False" />
+                <line number="65" hits="2" branch="False" />
+                <line number="66" hits="2" branch="True" condition-coverage="100% (2/2)">
                   <conditions>
-                    <condition number="164" type="jump" coverage="0%" />
+                    <condition number="164" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="67" hits="0" branch="False" />
-                <line number="69" hits="0" branch="False" />
-                <line number="70" hits="0" branch="False" />
+                <line number="67" hits="1" branch="False" />
+                <line number="69" hits="1" branch="False" />
+                <line number="70" hits="2" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="64" hits="0" branch="False" />
-            <line number="65" hits="0" branch="False" />
-            <line number="66" hits="0" branch="True" condition-coverage="0% (0/2)">
+            <line number="64" hits="2" branch="False" />
+            <line number="65" hits="2" branch="False" />
+            <line number="66" hits="2" branch="True" condition-coverage="100% (2/2)">
               <conditions>
-                <condition number="164" type="jump" coverage="0%" />
+                <condition number="164" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="67" hits="0" branch="False" />
-            <line number="69" hits="0" branch="False" />
-            <line number="70" hits="0" branch="False" />
+            <line number="67" hits="1" branch="False" />
+            <line number="69" hits="1" branch="False" />
+            <line number="70" hits="2" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Controllers.OrderController/&lt;GetOrderCountDriver&gt;d__17" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="1" complexity="1">
@@ -1528,60 +1528,60 @@
             <line number="150" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;PlaceOrder&gt;d__4" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="0" complexity="2">
+        <class name="OrderService.Controllers.OrderController/&lt;PlaceOrder&gt;d__4" filename="Controllers\OrderController.cs" line-rate="0.9" branch-rate="0.5" complexity="2">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+            <method name="MoveNext" signature="()" line-rate="0.9" branch-rate="0.5" complexity="2">
               <lines>
-                <line number="46" hits="0" branch="False" />
-                <line number="47" hits="0" branch="True" condition-coverage="0% (0/2)">
+                <line number="46" hits="2" branch="False" />
+                <line number="47" hits="2" branch="True" condition-coverage="50% (1/2)">
                   <conditions>
-                    <condition number="29" type="jump" coverage="0%" />
+                    <condition number="29" type="jump" coverage="50%" />
                   </conditions>
                 </line>
                 <line number="48" hits="0" branch="False" />
-                <line number="50" hits="0" branch="False" />
-                <line number="51" hits="0" branch="False" />
-                <line number="53" hits="0" branch="False" />
-                <line number="55" hits="0" branch="False" />
-                <line number="56" hits="0" branch="False" />
-                <line number="57" hits="0" branch="False" />
-                <line number="59" hits="0" branch="False" />
+                <line number="50" hits="2" branch="False" />
+                <line number="51" hits="2" branch="False" />
+                <line number="53" hits="1" branch="False" />
+                <line number="55" hits="1" branch="False" />
+                <line number="56" hits="1" branch="False" />
+                <line number="57" hits="1" branch="False" />
+                <line number="59" hits="2" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="46" hits="0" branch="False" />
-            <line number="47" hits="0" branch="True" condition-coverage="0% (0/2)">
+            <line number="46" hits="2" branch="False" />
+            <line number="47" hits="2" branch="True" condition-coverage="50% (1/2)">
               <conditions>
-                <condition number="29" type="jump" coverage="0%" />
+                <condition number="29" type="jump" coverage="50%" />
               </conditions>
             </line>
             <line number="48" hits="0" branch="False" />
-            <line number="50" hits="0" branch="False" />
-            <line number="51" hits="0" branch="False" />
-            <line number="53" hits="0" branch="False" />
-            <line number="55" hits="0" branch="False" />
-            <line number="56" hits="0" branch="False" />
-            <line number="57" hits="0" branch="False" />
-            <line number="59" hits="0" branch="False" />
+            <line number="50" hits="2" branch="False" />
+            <line number="51" hits="2" branch="False" />
+            <line number="53" hits="1" branch="False" />
+            <line number="55" hits="1" branch="False" />
+            <line number="56" hits="1" branch="False" />
+            <line number="57" hits="1" branch="False" />
+            <line number="59" hits="2" branch="False" />
           </lines>
         </class>
-        <class name="OrderService.Controllers.OrderController/&lt;ReadyForPickup&gt;d__10" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="OrderService.Controllers.OrderController/&lt;ReadyForPickup&gt;d__10" filename="Controllers\OrderController.cs" line-rate="1" branch-rate="1" complexity="1">
           <methods>
-            <method name="MoveNext" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="112" hits="0" branch="False" />
-                <line number="113" hits="0" branch="False" />
-                <line number="115" hits="0" branch="False" />
-                <line number="116" hits="0" branch="False" />
+                <line number="112" hits="1" branch="False" />
+                <line number="113" hits="1" branch="False" />
+                <line number="115" hits="1" branch="False" />
+                <line number="116" hits="1" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="112" hits="0" branch="False" />
-            <line number="113" hits="0" branch="False" />
-            <line number="115" hits="0" branch="False" />
-            <line number="116" hits="0" branch="False" />
+            <line number="112" hits="1" branch="False" />
+            <line number="113" hits="1" branch="False" />
+            <line number="115" hits="1" branch="False" />
+            <line number="116" hits="1" branch="False" />
           </lines>
         </class>
         <class name="OrderService.Controllers.DateRequest" filename="Controllers\OrderController.cs" line-rate="0" branch-rate="1" complexity="2">

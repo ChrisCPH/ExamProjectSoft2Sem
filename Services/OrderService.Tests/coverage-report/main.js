@@ -222,13 +222,13 @@ var assemblies = [
     "name": "OrderService",
     "classes": [
       { "name": "OrderService.Controllers.DateRequest", "rp": "OrderService_DateRequest.html", "cl": 0, "ucl": 2, "cal": 2, "tl": 178, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "OrderService.Controllers.OrderController", "rp": "OrderService_OrderController.html", "cl": 0, "ucl": 84, "cal": 84, "tl": 178, "cb": 0, "tb": 18, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "OrderService.Controllers.OrderController", "rp": "OrderService_OrderController.html", "cl": 50, "ucl": 34, "cal": 84, "tl": 178, "cb": 8, "tb": 18, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "OrderService.Data.OrderDbContext", "rp": "OrderService_OrderDbContext.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 13, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "OrderService.Models.Order", "rp": "OrderService_Order.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 29, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "OrderService.Models.OrderItem", "rp": "OrderService_OrderItem.html", "cl": 5, "ucl": 0, "cal": 5, "tl": 23, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "OrderService.Repositories.OrderRepository", "rp": "OrderService_OrderRepository.html", "cl": 44, "ucl": 32, "cal": 76, "tl": 114, "cb": 2, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "OrderService.Repositories.OrderRepository", "rp": "OrderService_OrderRepository.html", "cl": 76, "ucl": 0, "cal": 76, "tl": 114, "cb": 2, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "OrderService.Services.MenuItem", "rp": "OrderService_MenuItem.html", "cl": 5, "ucl": 0, "cal": 5, "tl": 346, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "OrderService.Services.OrderService", "rp": "OrderService_OrderService.html", "cl": 113, "ucl": 90, "cal": 203, "tl": 346, "cb": 6, "tb": 20, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "OrderService.Services.OrderService", "rp": "OrderService_OrderService.html", "cl": 144, "ucl": 59, "cal": 203, "tl": 346, "cb": 8, "tb": 20, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Program", "rp": "OrderService_Program.html", "cl": 0, "ucl": 13, "cal": 13, "tl": 28, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
