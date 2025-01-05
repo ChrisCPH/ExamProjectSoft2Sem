@@ -1,5 +1,6 @@
 using FeedbackService.Repositories;
 using FeedbackService.Models;
+using System.Text.Encodings.Web;
 
 namespace FeedbackService.Services
 {
@@ -43,8 +44,23 @@ namespace FeedbackService.Services
 
         public async Task<Feedback> CreateFeedback(Feedback feedback)
         {
+            if (!string.IsNullOrEmpty(feedback.Comment))
+            {
+                feedback.Comment = InputSanitizer.Sanitize(feedback.Comment);
+            }
+
             var feedbackCreated = await _repository.AddFeedback(feedback);
             return feedbackCreated;
+        }
+    }
+
+    public static class InputSanitizer
+    {
+        public static string Sanitize(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+
+            return HtmlEncoder.Default.Encode(input.Trim());
         }
     }
 }

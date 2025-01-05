@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
+using System.Text.Encodings.Web;
 
 namespace AccountService.Services
 {
@@ -38,6 +39,13 @@ namespace AccountService.Services
 
         public async Task<Account> CreateAccountAsync(Account account)
         {
+            if (account == null)
+            {
+                throw new ArgumentNullException(nameof(account), "Account data is required.");
+            }
+
+            account.Name = InputSanitizer.Sanitize(account.Name);
+
             if (string.IsNullOrEmpty(account.Password))
             {
                 throw new ArgumentException("Password is required.");
@@ -228,6 +236,7 @@ namespace AccountService.Services
 
             if (!string.IsNullOrEmpty(updatedAccount.Name))
             {
+                updatedAccount.Name = InputSanitizer.Sanitize(updatedAccount.Name);
                 existingAccount.Name = updatedAccount.Name;
             }
 
@@ -247,6 +256,16 @@ namespace AccountService.Services
             }
 
             return await _accountRepository.UpdateAccountAsync(existingAccount);
+        }
+    }
+
+    public static class InputSanitizer
+    {
+        public static string Sanitize(string input)
+        {
+            if (string.IsNullOrEmpty(input)) return input;
+
+            return HtmlEncoder.Default.Encode(input.Trim());
         }
     }
 }
