@@ -7,7 +7,7 @@ using OrderService.Models;
 using OrderService.Data;
 using Microsoft.EntityFrameworkCore;
 
-public class ServiceTests
+public class OrderServiceTests
 {
     private OrderDbContext GetInMemoryDbContext()
     {

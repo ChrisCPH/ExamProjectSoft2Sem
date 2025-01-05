@@ -18,6 +18,7 @@ namespace ManagementService.Services
         Task<decimal> GetTotalDeliveryPrice(int driverId, DateTime startDate, DateTime endDate);
         Task<int> GetDeliveryCount(int driverId, DateTime startDate, DateTime endDate);
         Task<bool> UpdatePaymentStatus(int paymentId);
+        void PublishPaymentMessage(string paymentType, Payment payment);
     }
 
     public class PaymentService : IPaymentService
@@ -203,6 +204,5 @@ namespace ManagementService.Services
 
             return true;
         }
-
     }
 }

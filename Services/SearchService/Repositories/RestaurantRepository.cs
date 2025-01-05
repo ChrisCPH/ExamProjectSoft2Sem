@@ -4,7 +4,26 @@ using SearchService.Data;
 
 namespace SearchService.Repositories
 {
-    public class RestaurantRepository
+    public interface IRestaurantRepository
+    {
+        Task<List<Restaurant>> SearchRestaurantAsync(string? name, string? address, string? category);
+        Task<Restaurant?> GetRestaurantByIdAsync(int id);
+        Task<List<MenuItem>?> GetMenuAsync(int id);
+        Task<MenuItem?> GetMenuItemByIdAsync(int menuItemID);
+        Task<Categories?> GetCategoryByIdAsync(int categoryId);
+        Task<MenuItem> AddMenuItemAsync(MenuItem menuItem);
+        Task<MenuItem?> UpdateMenuItemAsync(MenuItem menuItem);
+        Task<string?> DeleteMenuItemAsync(int menuItemId);
+        Task<Restaurant> AddRestaurantAsync(Restaurant restaurant);
+        Task<string?> DeleteRestaurantAsync(int restaurantId);
+        Task<Restaurant?> UpdateRestaurantAsync(Restaurant updatedRestaurant);
+        Task<Categories> AddCategoryAsync(Categories category);
+        Task<string?> DeleteCategoryAsync(int categoryId);
+        Task<Categories?> UpdateCategoryAsync(Categories category);
+        
+    }
+
+    public class RestaurantRepository : IRestaurantRepository
     {
         private readonly SearchDbContext _context;
 

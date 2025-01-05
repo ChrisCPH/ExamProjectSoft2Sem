@@ -5,7 +5,7 @@ using SearchService.Repositories;
 
 namespace SearchService.Tests
 {
-    public class SearchServiceTests
+    public class SearchRepositoryTests
     {
         private SearchDbContext GetInMemoryDbContext()
         {

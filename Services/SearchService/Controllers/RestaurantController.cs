@@ -9,9 +9,9 @@ namespace SearchService.Controllers
     [ApiController]
     public class RestaurantController : ControllerBase
     {
-        private readonly RestaurantRepository _repository;
+        private readonly IRestaurantRepository _repository;
 
-        public RestaurantController(RestaurantRepository repository)
+        public RestaurantController(IRestaurantRepository repository)
         {
             _repository = repository;
         }

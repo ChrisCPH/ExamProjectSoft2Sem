@@ -9,7 +9,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<SearchDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddScoped<RestaurantRepository>();
+builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -21,5 +21,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-//public partial class Program { }

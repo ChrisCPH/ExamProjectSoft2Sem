@@ -17,7 +17,7 @@ namespace ManagementService.Services
         Task<decimal> GetTotalOrderPrice(int restaurantId, DateTime startDate, DateTime endDate);
         Task<int> GetOrderCount(int restaurantId, DateTime startDate, DateTime endDate);
         Task<bool> UpdateFeeStatus(int feeId);
-
+        void PublishFeeMessage(string feeType, Fee fee);
     }
 
     public class FeeService : IFeeService

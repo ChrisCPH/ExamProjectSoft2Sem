@@ -42,68 +42,6 @@ namespace AccountService.Tests
             return new AccountDbContext(options);
         }
 
-        // Fix login tests
-        /*
-        [Fact]
-        public async Task LoginAsync_ShouldReturnToken_WhenCredentialsAreValid()
-        {
-            var email = "restaurantA@test.com";
-            var password = "validPassword";
-            var hashedPassword = new PasswordHasher<Account>().HashPassword(null, password);
-
-            var account = new Account
-            {
-                AccountID = 1,
-                Email = email,
-                Password = hashedPassword,
-                AccountType = AccountType.Restaurant,
-                CreatedAt = DateTime.UtcNow
-            };
-
-            await _dbContext.Account.AddAsync(account);
-            await _dbContext.SaveChangesAsync();
-
-            var token = await _accountService.LoginAsync(email, password);
-            Assert.NotNull(token);
-        }
-
-
-        [Fact]
-        public async Task LoginAsync_ShouldReturnNull_WhenPasswordIsIncorrect()
-        {
-            var email = "restaurantA@test.com";
-            var password = "wrongPassword";
-            var correctPassword = "validPassword";
-            var hashedPassword = new PasswordHasher<Account>().HashPassword(null, correctPassword);
-
-            var account = new Account
-            {
-                AccountID = 1,
-                Email = email,
-                Password = hashedPassword,
-                AccountType = AccountType.Restaurant,
-                CreatedAt = DateTime.UtcNow
-            };
-
-            _dbContext.Account.Add(account);
-            await _dbContext.SaveChangesAsync();
-
-            var token = await _accountService.LoginAsync(email, password);
-
-            Assert.Null(token);
-        }
-
-        [Fact]
-        public async Task LoginAsync_ShouldReturnNull_WhenAccountDoesNotExist()
-        {
-            var email = "nonexistent@test.com";
-            var password = "validPassword";
-
-            var token = await _accountService.LoginAsync(email, password);
-
-            Assert.Null(token);
-        }*/
-
         [Fact]
         public async Task CreateAccountAsync_ShouldCreateAccount_WhenDataIsValid()
         {
@@ -305,6 +243,5 @@ namespace AccountService.Tests
             await Assert.ThrowsAsync<InvalidOperationException>(
                 () => _accountService.GetAvailableDriverWithLongestWaitTime());
         }
-
     }
 }

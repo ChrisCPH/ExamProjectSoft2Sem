@@ -97,12 +97,12 @@ namespace AccountService.Services
 
             var claims = new[]
             {
-            new Claim(ClaimTypes.Name, account.Name),
-            new Claim(ClaimTypes.Email, account.Email),
-            new Claim("AccountID", account.AccountID.ToString()),
-            new Claim(ClaimTypes.Role, account.GetType().Name),
-            new Claim("AccountType", account.AccountType.ToString())
-        };
+                new Claim(ClaimTypes.Name, account.Name),
+                new Claim(ClaimTypes.Email, account.Email),
+                new Claim("AccountID", account.AccountID.ToString()),
+                new Claim(ClaimTypes.Role, account.GetType().Name),
+                new Claim("AccountType", account.AccountType.ToString())
+            };
 
             var token = new JwtSecurityToken(
                 issuer: jwtSettings["Issuer"],
