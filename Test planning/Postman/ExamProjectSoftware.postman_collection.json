@@ -1,0 +1,1359 @@
+{
+	"info": {
+		"_postman_id": "726322e8-89c0-4977-b7d9-6c795f8feb25",
+		"name": "ExamProjectSoftware",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35192313"
+	},
+	"item": [
+		{
+			"name": "SearchService",
+			"item": [
+				{
+					"name": "Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/search?name=&address=&category=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								},
+								{
+									"key": "address",
+									"value": ""
+								},
+								{
+									"key": "category",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMenuByRestaurantId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/1/menu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"1",
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRestaurantById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMenuItemById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/menu/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"menu",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCategoryById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/category/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddMenuItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Margherita Pizza\",\r\n    \"Price\": 6.99,\r\n    \"Description\": \"Cheese, tomato sauce\",\r\n    \"RestaurantID\": 17\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/menu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateMenuItem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MenuItemID\": 58,\r\n    \"Name\": \"test\",\r\n    \"Price\": 9.99,\r\n    \"Description\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/menu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"menu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMenuItem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/menu/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"menu",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddRestaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Video Restaurant\",\r\n    \"OpeningHours\": \"9:00 - 22:00\",\r\n    \"Address\": \"431 Restaurant Street\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRestaurant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"RestaurantID\": 12,\r\n    \"Name\": \"Pizza Hut\",\r\n    \"OpeningHours\": \"9:00 - 22:00\",\r\n    \"Address\": \"123 Pizza Street\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRestaurant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddCategories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Category\": \"Homemade\",\r\n    \"RestaurantID\": 17\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCategories",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CategoryID\": 4,\r\n    \"Category\": \"Pizza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategories",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5045/api/restaurant/categories/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5045",
+							"path": [
+								"api",
+								"restaurant",
+								"categories",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OrderService",
+			"item": [
+				{
+					"name": "CreateOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order?customerId=21&restaurantId=22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "21"
+								},
+								{
+									"key": "restaurantId",
+									"value": "22"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOrderItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/7/items?menuItemId=67&quantity=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"7",
+								"items"
+							],
+							"query": [
+								{
+									"key": "menuItemId",
+									"value": "67"
+								},
+								{
+									"key": "quantity",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlaceOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/place/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"place",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrderByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllOrders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrderItemByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/item/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"item",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrderItemsByOrderID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/4/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"4",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOrder",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReadyForPickup",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/orderReady/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"orderReady",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AcceptOrder",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/accept/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"accept",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeclineOrder",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/decline/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"decline",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeliverOrder",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5149/api/order/deliver/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"deliver",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTotalOrderPriceRestaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\": \"2024-12-04T18:55:39.660Z\",\r\n    \"endDate\": \"2024-12-06T18:55:39.660Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5149/api/order/restaurant/3/totalprice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"restaurant",
+								"3",
+								"totalprice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTotalOrderPriceDriver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\": \"2024-12-04T18:55:39.660Z\",\r\n    \"endDate\": \"2024-12-06T18:55:39.660Z\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5149/api/order/driver/15/totalprice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"driver",
+								"15",
+								"totalprice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrderCountRestaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\": \"2024-12-04T18:55:39.660Z\",\r\n    \"endDate\": \"2024-12-06T18:55:39.660Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5149/api/order/restaurant/3/ordercount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"restaurant",
+								"3",
+								"ordercount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrderCountDriver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\": \"2024-12-04T18:55:39.660Z\",\r\n    \"endDate\": \"2024-12-06T18:55:39.660Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5149/api/order/driver/15/ordercount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5149",
+							"path": [
+								"api",
+								"order",
+								"driver",
+								"15",
+								"ordercount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AccountService",
+			"item": [
+				{
+					"name": "CreateAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Cool Guy\",\r\n  \"Email\": \"customer8@mail.com\",\r\n  \"Password\": \"xx\",\r\n  \"PhoneNumber\": \"1234567890\",\r\n  \"AccountType\": 0,\r\n  \"Language\": \"en\",\r\n  \"Address\": \"431 Customer Street\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5290/api/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAccount",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Sushi\",\r\n  \"Email\": \"pizza11111@mail.com\",\r\n  \"Password\": \"xxx\",\r\n  \"PhoneNumber\": \"123456\",\r\n  \"AccountType\": 2,\r\n  \"Language\": \"da\",\r\n  \"Address\": \"312 Sushi Lane\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5290/api/account/update/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"update",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAccountByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5290/api/account/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LinkAccount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5290/api/account/linkRestaurant?name=Pizza Palace&address=431 Pizza Lane&category=Homemade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"linkRestaurant"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Pizza Palace"
+								},
+								{
+									"key": "address",
+									"value": "431 Pizza Lane"
+								},
+								{
+									"key": "category",
+									"value": "Homemade"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAccount",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5290/api/account/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Email\": \"test@mail.com\",\r\n  \"Password\": \"xx\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5290/api/account/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAccountTypeFromToken",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5290/api/account/accountType?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQnVyZ2VyIEtpbmciLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ4eHgiLCJBY2NvdW50SUQiOiI1IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWNjb3VudCIsIkFjY291bnRUeXBlIjoiUmVzdGF1cmFudCIsImV4cCI6MTczMjYzMDYxNiwiaXNzIjoiTVRPR08iLCJhdWQiOiJNVE9HT0F1ZGllbmNlIn0.er0NfPjQgVlV3zCmgUyR47oioHG623A7T44Pitp_WqU",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"accountType"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQnVyZ2VyIEtpbmciLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ4eHgiLCJBY2NvdW50SUQiOiI1IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWNjb3VudCIsIkFjY291bnRUeXBlIjoiUmVzdGF1cmFudCIsImV4cCI6MTczMjYzMDYxNiwiaXNzIjoiTVRPR08iLCJhdWQiOiJNVE9HT0F1ZGllbmNlIn0.er0NfPjQgVlV3zCmgUyR47oioHG623A7T44Pitp_WqU"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SetAvgRating",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5290/api/account/4/avgRating/4.25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"4",
+								"avgRating",
+								"4.25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SetUnavailable",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5290/api/account/setUnavailable/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"setUnavailable",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SetAvailable",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5290/api/account/setAvailable/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"setAvailable",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDriverForDelivery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5290/api/account/getDriverForDelivery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5290",
+							"path": [
+								"api",
+								"account",
+								"getDriverForDelivery"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FeedbackService",
+			"item": [
+				{
+					"name": "CreateFeedback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FoodRating\": 2.0,\r\n    \"DeliveryRating\": 3.0,\r\n    \"Comment\": \"Great food slow delivery\",\r\n    \"RestaurantID\": 3,\r\n    \"DeliveryDriverID\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5193/api/feedback",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5193",
+							"path": [
+								"api",
+								"feedback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAvgFoodRating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5193/api/feedback/avgFoodRating/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5193",
+							"path": [
+								"api",
+								"feedback",
+								"avgFoodRating",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAvgDeliveryRating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5193/api/feedback/avgDeliveryRating/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5193",
+							"path": [
+								"api",
+								"feedback",
+								"avgDeliveryRating",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ManagementService",
+			"item": [
+				{
+					"name": "GetAllFees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5242/api/fee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"fee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllPayments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5242/api/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFeeByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5242/api/fee/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"fee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPaymentByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5242/api/payment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"payment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CalculateRestaurantFee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\": \"2024-12-01T18:55:39.660Z\",\r\n    \"endDate\": \"2024-12-30T18:55:39.660Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5242/api/fee/22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"fee",
+								"22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CalculateDriverPayment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\": \"2024-12-01T18:55:39.660Z\",\r\n    \"endDate\": \"2024-12-30T18:55:39.660Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5242/api/payment/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"payment",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConfirmFee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5242/api/fee/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"fee",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConfirmPayment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5242/api/payment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5242",
+							"path": [
+								"api",
+								"payment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
