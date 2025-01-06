@@ -19,8 +19,8 @@ public class NotificationService : IDisposable
     private readonly HttpClient _httpClient;
     private readonly string _smtpHost = "smtp.gmail.com";
     private readonly int _smtpPort = 587;
-    private readonly string _email = "christoffer221199@gmail.com"; // Sender email
-    private readonly string _emailPassword = "iret nxlq rouj dkja"; // App password
+    private readonly string _email = ""; // Sender email
+    private readonly string _emailPassword = ""; // App password
 
     public NotificationService(string rabbitMqHost, string queueName, HttpClient httpClient)
     {
@@ -284,7 +284,7 @@ public class NotificationService : IDisposable
 
     public async Task SendEmail(string toEmail, string subject, string body)
     {
-        toEmail = "bobthethe7@gmail.com"; // Use this when testing
+        //toEmail = ""; // Use this when testing
         try
         {
             var mailMessage = new MailMessage
