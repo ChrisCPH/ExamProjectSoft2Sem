@@ -49,7 +49,7 @@ public class FeedbackServiceTests
     [Fact]
     public async Task CreateFeedback_ValidFeedback_CallsRepository()
     {
-        var feedback = new Feedback { FoodRating = 5 };
+        var feedback = new Feedback { FoodRating = 5, DeliveryRating = 5 };
         _mockRepo.Setup(r => r.AddFeedback(feedback))
                  .ReturnsAsync(feedback);
 

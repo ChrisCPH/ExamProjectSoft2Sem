@@ -44,6 +44,16 @@ namespace FeedbackService.Services
 
         public async Task<Feedback> CreateFeedback(Feedback feedback)
         {
+            if (feedback.FoodRating < 1 || feedback.FoodRating > 5)
+            {
+                throw new ArgumentException("Food rating must be between 1 and 5.");
+            }
+
+            if (feedback.DeliveryRating < 1 || feedback.DeliveryRating > 5)
+            {
+                throw new ArgumentException("Delivery rating must be between 1 and 5.");
+            }
+
             if (!string.IsNullOrEmpty(feedback.Comment))
             {
                 feedback.Comment = InputSanitizer.Sanitize(feedback.Comment);
