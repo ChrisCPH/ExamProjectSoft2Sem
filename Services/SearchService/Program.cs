@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Prometheus;
 using SearchService.Data;
 using SearchService.Repositories;
 
@@ -18,6 +19,19 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
+app.UseHttpMetrics();
+
 app.MapControllers();
+
+app.MapMetrics();
+
+var requestCounter = Metrics.CreateCounter("http_requests_total", "Total HTTP requests received.");
+
+app.Use(async (context, next) =>
+{
+    requestCounter.Inc();
+    await next.Invoke();
+});
 
 app.Run();

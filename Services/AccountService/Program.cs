@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Prometheus;
 using System.Text;
 using AccountService.Data;
 using AccountService.Repositories;
@@ -63,6 +64,18 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseHttpMetrics();
+
 app.MapControllers();
+
+app.MapMetrics();
+
+var requestCounter = Metrics.CreateCounter("http_requests_total", "Total HTTP requests received.");
+
+app.Use(async (context, next) =>
+{
+    requestCounter.Inc();
+    await next.Invoke();
+});
 
 app.Run();
